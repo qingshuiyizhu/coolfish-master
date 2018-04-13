@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GBK" ?>
+<operation_out>
+	<req_seq>0_9834345</req_seq>
+	<resp_seq>0</resp_seq>
+	<resp_time>20180411114432</resp_time>
+	<response>
+		<resp_type>0</resp_type>
+		<resp_code>0000</resp_code>
+		<resp_desc><![CDATA[成功]]></resp_desc>
+	</response>
+	<content>
+		<poollist></poollist>
+		<prodlist>
+			<prodinfo>
+				<product_code>2000006594</product_code>
+				<product_name>全国通用流量套餐（套外：0.29元/MB）</product_name>
+				<left_value>11534336</left_value>
+				<cumulate_value>0</cumulate_value>
+			</prodinfo>
+		</prodlist>
+		<out_gprsflus>0</out_gprsflus>
+	</content>
+	<emergency_status>0</emergency_status>
+</operation_out>
+
+<?xml version="1.0" encoding="GBK" ?>
+<operation_out>
+	<req_seq>0_9834345</req_seq>
+	<resp_seq>0</resp_seq>
+	<resp_time>20180411114432</resp_time>
+	<response>
+		<resp_type>0</resp_type>
+		<resp_code>0000</resp_code>
+		<resp_desc><![CDATA[成功]]></resp_desc>
+	</response>
+	 
+	<emergency_status>0</emergency_status>
+</operation_out>

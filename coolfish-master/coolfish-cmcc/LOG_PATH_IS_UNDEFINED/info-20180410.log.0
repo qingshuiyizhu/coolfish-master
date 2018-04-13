@@ -1,0 +1,468 @@
+2018-04-10 13:57:42.903 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -dddddddddddddddddddddddddddddgggggggggggggg
+2018-04-10 14:33:44.265 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：1064844744450,查询月数为:201704
+2018-04-10 14:33:44.372 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id></app_id>
+  <access_tokenl></access_tokenl>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410143344</req_time>
+  <content>
+    <service_number>1064844744450</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 14:34:04.463 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：1064844744450,查询月数为:201704
+2018-04-10 14:34:04.575 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id></app_id>
+  <access_tokenl></access_tokenl>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410143404</req_time>
+  <content>
+    <service_number>1064844744450</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:07:21.610 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:07:21.766 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id></app_id>
+  <access_tokenl></access_tokenl>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410160721</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:07:22.188 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410160723</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:16:18.749 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:16:18.906 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_tokenl>IWyDm4ie9o12WEmLJYm0</access_tokenl>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410161618</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:16:19.218 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410161620</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:21:34.507 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:21:34.663 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410162134</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:21:34.991 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410162135</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:23:02.804 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:23:02.960 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type></req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410162302</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:23:03.273 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410162304</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:29:08.026 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:29:08.182 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?><operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>01</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410162908</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:29:08.510 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410162909</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:32:21.861 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:32:22.033 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>01</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410163221</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:32:22.361 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410163223</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:42:12.408 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:42:12.579 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>01</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410164212</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:42:12.908 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410164213</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 16:42:58.359 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 16:42:58.515 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>01</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410164258</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 16:42:58.843 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410164259</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 17:20:03.063 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 17:20:03.219 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410172003</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:20:03.547 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410172004</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 17:23:10.721 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 17:23:10.877 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410172310</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:23:11.190 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410172312</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 17:24:02.191 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 17:24:02.347 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410172402</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:24:02.660 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410172403</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 17:24:22.155 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 17:24:22.311 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410172422</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:24:22.655 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><response_time>20180410172423</response_time><response><resp_type>-5</resp_type><resp_code>4</resp_code><resp_desc>交互报文语法错误--输入报文</resp_desc></response><content></content></operation_out>
+2018-04-10 17:37:38.841 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201704
+2018-04-10 17:37:39.013 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410173738</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:37:40.049 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><process_code>cc_qryuserinfo</process_code><sysfunc_id></sysfunc_id><response_time>20180410173740</response_time><request_type>1</request_type><request_seq>sno</request_seq><request_source>102010</request_source><response><resp_result>0</resp_result><resp_code>0000</resp_code><resp_desc>Success</resp_desc></response><content><ret_code>0</ret_code><ret_msg>Success</ret_msg><msisdn>1440030670469</msisdn><imsi>460042306700470</imsi><iccid>89860403101800012446</iccid><status>2</status><username>丁静夫</username><brand>29</brand><Effdate>20180316121422</Effdate><Expdate>21001231000000</Expdate><subGroupId></subGroupId><subGroupName></subGroupName></content><emergency_status>0</emergency_status></operation_out>
+2018-04-10 17:39:00.446 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201704
+2018-04-10 17:39:00.603 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410173900</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:39:00.946 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><req_seq>0_9834345</req_seq><resp_seq>0</resp_seq><resp_time>20180410173901</resp_time><response><resp_type>0</resp_type><resp_code>0000</resp_code><resp_desc><![CDATA[成功]]></resp_desc></response><content><out_gprsflus>0</out_gprsflus></content><emergency_status>0</emergency_status></operation_out>
+2018-04-10 17:39:50.796 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201704
+2018-04-10 17:39:50.952 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410173950</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:39:51.390 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+
+2018-04-10 17:40:30.325 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201704
+2018-04-10 17:40:30.481 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410174030</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:40:32.823 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+
+2018-04-10 17:42:03.275 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201704
+2018-04-10 17:42:03.416 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410174203</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201704</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:42:03.807 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+
+2018-04-10 17:44:37.245 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 17:44:37.401 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410174437</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 17:44:37.792 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+
+2018-04-10 18:10:52.869 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 18:10:53.025 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410181052</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 18:10:53.463 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><req_seq>0_9834345</req_seq><resp_seq>0</resp_seq><resp_time>20180410181054</resp_time><response><resp_type>0</resp_type><resp_code>0000</resp_code><resp_desc><![CDATA[成功]]></resp_desc></response><content><poollist></poollist><prodlist><prodinfo><product_code>2000006594</product_code><product_name>全国通用流量套餐（套外：0.29元/MB）</product_name><left_value>11534336</left_value><cumulate_value>0</cumulate_value></prodinfo></prodlist><out_gprsflus>0</out_gprsflus></content><emergency_status>0</emergency_status></operation_out>
+2018-04-10 18:12:12.590 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 18:12:12.746 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410181212</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 18:12:13.152 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><req_seq>0_9834345</req_seq><resp_seq>0</resp_seq><resp_time>20180410181213</resp_time><response><resp_type>0</resp_type><resp_code>0000</resp_code><resp_desc><![CDATA[成功]]></resp_desc></response><content><poollist></poollist><prodlist><prodinfo><product_code>2000006594</product_code><product_name>全国通用流量套餐（套外：0.29元/MB）</product_name><left_value>11534336</left_value><cumulate_value>0</cumulate_value></prodinfo></prodlist><out_gprsflus>0</out_gprsflus></content><emergency_status>0</emergency_status></operation_out>
+2018-04-10 18:34:34.626 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -物联网单卡实时流量查询:查询号码为：17892088908,查询月数为:201803
+2018-04-10 18:34:34.797 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -发送xml数据为:
+<?xml version="1.0" encoding="GBK"?>
+<operation_in>
+  <process_code>OPEN_QRYINTERNETUSERGPRS</process_code>
+  <app_id>109000000114</app_id>
+  <access_token>IWyDm4ie9o12WEmLJYm0</access_token>
+  <sign></sign>
+  <verify_code></verify_code>
+  <req_type>1</req_type>
+  <terminal_id></terminal_id>
+  <accept_seq></accept_seq>
+  <req_seq>0_9834345</req_seq>
+  <req_time>20180410183434</req_time>
+  <content>
+    <service_number>17892088908</service_number>
+    <cycle>201803</cycle>
+  </content>
+</operation_in>
+2018-04-10 18:34:35.219 [main] INFO  o.c.c.c.service.CMCCLiuLiangService -返回的xml数据为:
+<?xml version="1.0" encoding="GBK" ?><operation_out><req_seq>0_9834345</req_seq><resp_seq>0</resp_seq><resp_time>20180410183436</resp_time><response><resp_type>0</resp_type><resp_code>0000</resp_code><resp_desc><![CDATA[成功]]></resp_desc></response><content><poollist></poollist><prodlist><prodinfo><product_code>2000006594</product_code><product_name>全国通用流量套餐（套外：0.29元/MB）</product_name><left_value>11534336</left_value><cumulate_value>0</cumulate_value></prodinfo></prodlist><out_gprsflus>0</out_gprsflus></content><emergency_status>0</emergency_status></operation_out>

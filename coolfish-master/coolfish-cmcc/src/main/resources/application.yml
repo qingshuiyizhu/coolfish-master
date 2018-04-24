@@ -12,9 +12,9 @@ spring:
     # 主数据源，默认的
        datasource: 
                   type: com.alibaba.druid.pool.DruidDataSource
-                  url: jdbc:mysql://localhost:3306/colud_control_system?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
-                  username: root
-                  password: 123456
+                  url: jdbc:mysql://rm-wz9q2m8jgt8kr63d8.mysql.rds.aliyuncs.com/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  username: wapwei
+                  password: Wapwei123
                   driverClassName: com.mysql.jdbc.Driver
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	 <description>Spring cloud 多模块构建源项目</description>
+	<description>Spring cloud 多模块构建源项目</description>
 	<modelVersion>4.0.0</modelVersion>
 	<name>coolfish-master</name>
 	<!-- 项目说明：这里作为聚合工程的父工程 -->
@@ -10,12 +9,12 @@
 	<artifactId>coolfish-master</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<!-- 使用spring-boot版本 1.5.9.RELEASE -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		 <version>1.5.9.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -23,16 +22,15 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-<dependencies>
-  
-</dependencies>
- 	<modules>
-		<module>coolfish-cmcc</module>
-		<module>coolfish-redis</module>
-		<module>coolfish-cmcc2redis</module>
-  </modules>
-	
-	
+	<dependencies>
+
+	</dependencies>
+	<modules>
+		<module>coolfish-telprovider</module>
+		<module>coolfish-telconsumer-cmcc-monthly</module>
+		<module>coolfish-telconsumer-ctcc-monthly</module>
+	</modules>
+
 	<!--配置镜像仓库 -->
 	<repositories>
 		<repository>
@@ -99,5 +97,5 @@
 			<url>http://maven-db-plugin.googlecode.com/svn/maven/repo</url>
 			<layout>default</layout>
 		</pluginRepository>
-</pluginRepositories>
+	</pluginRepositories>
 </project>

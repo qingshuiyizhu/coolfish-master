@@ -42,6 +42,12 @@ public class KuyuAddPackageService {
 
     public BigDecimal SumFlowTal(String tel) {
           return repository.SumFlowTal(tel);
+    }
+
+    @Transactional(readOnly = true)
+    public List<KuyuAddPackage> findFlashObject(String tel) {
+     
+        return repository.findFlashObject(tel) ;
     } 
 
 }

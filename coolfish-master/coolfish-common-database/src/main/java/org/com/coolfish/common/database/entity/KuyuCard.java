@@ -39,7 +39,7 @@ public class KuyuCard extends IdEntity implements Serializable {
 
     // 卡片状态
     private Integer card_status;
-
+    //卡片的类型：1表示普通卡，2表示池卡，3表示空卡
     private Integer card_type;
 
     // 充值次数
@@ -47,6 +47,10 @@ public class KuyuCard extends IdEntity implements Serializable {
 
     // 使用在用套餐之前的查询的流量
     private BigDecimal beforeApiFlow;
+  
+    // 卡片基本类型 （卡片基本类型 （1月套餐， 2累计套餐， 30月租卡，4空套餐 ，5当月套餐）
+    @Column(name = "type")
+    private Integer type;
 
     @Transient
     public BigDecimal getBeforeApiFlow() {
@@ -72,10 +76,6 @@ public class KuyuCard extends IdEntity implements Serializable {
     public void setStarttime(Date starttime) {
         this.starttime = starttime;
     }
-
-    // 卡片基本类型 （卡片基本类型 （1月套餐， 2累计套餐， 30月租卡，4空套餐 ，5当月套餐）
-    @Column(name = "type")
-    private Integer type;
 
     public Integer getType() {
         return type;
@@ -155,6 +155,10 @@ public class KuyuCard extends IdEntity implements Serializable {
 
     public void setCard_type(Integer card_type) {
         this.card_type = card_type;
+    }
+
+    public KuyuCard() {
+        super();
     }
 
     public KuyuCard(Integer id, Integer operator_type, String tel, Integer operatorid, Integer zid,

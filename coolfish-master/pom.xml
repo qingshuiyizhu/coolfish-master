@@ -30,6 +30,8 @@
 		<module>coolfish-telprovider</module>
 		<module>coolfish-telconsumer-cmcc-monthly</module>
 		<module>coolfish-telconsumer-ctcc-monthly</module>
+		<module>coolfish-silent-telprovider</module>
+		<module>coolfish-silent-cmcc</module>
 		<!-- <module>coolfish-telconsumer-ctcc-stoperror</module> <module>coolfish-telconsumer-cmcc-stoperror</module> -->
 	</modules>
 
@@ -45,6 +47,11 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>provided</scope>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

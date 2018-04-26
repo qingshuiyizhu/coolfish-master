@@ -9,7 +9,7 @@
 		<version>1.0.0-RELEASE</version>
 	</parent>
 	<artifactId>coolfish-common-database</artifactId>
- 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.com.coolfish</groupId>

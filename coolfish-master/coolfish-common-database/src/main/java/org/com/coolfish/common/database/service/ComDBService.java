@@ -2,7 +2,9 @@ package org.com.coolfish.common.database.service;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
+import org.com.coolfish.common.database.entity.KuyuAddPackage;
 import org.com.coolfish.common.database.entity.KuyuCard;
 import org.com.coolfish.common.database.entity.KuyuCardSimstate;
 import org.com.coolfish.common.database.entity.KuyuFlowDetail;
@@ -13,12 +15,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ComDBService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private KuyuCardService kuyuCardService;
+
+    @Autowired
+    private KuyuAddPackageService kuyuAddPackageService;
 
     @Autowired
     private KuyuCardSimstateService kuyuCardSimstateService;
@@ -79,6 +85,22 @@ public class ComDBService {
         simsate.setOperatorName("流量监控停机");
 
         kuyuCardSimstateService.save(simsate);
+    }
+
+    public void flashSlientStatus(String tel) {
+        List<KuyuAddPackage> addPackages = kuyuAddPackageService.findFlashObject(tel);
+        logger.info("号码[{}]沉默期订购套餐个数[{}]",tel,addPackages.size());
+        KuyuAddPackage addpackage = null;
+        for (int i = 0; i < addPackages.size(); i++) {
+             addpackage = addPackages.get(i);
+            logger.info("号码[{}]沉默期套餐修改前数据：{}",tel,addpackage );
+            long addEndTime = addpackage.getEndtime().getTime()
+                    + (new Date().getTime() - addpackage.getAddtime().getTime());
+            addpackage.setStarttime(new Date());
+            addpackage.setEndtime(new Date(addEndTime));
+            kuyuAddPackageService.save(addpackage);
+            logger.info("号码[{}]沉默期套餐修改后数据：{}",tel,addpackage );
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package org.com.coolfish.common.database.repository;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.com.coolfish.common.database.entity.KuyuAddPackage;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,4 +13,7 @@ public interface KuyuAddPackageRepository extends JpaRepository<KuyuAddPackage, 
      BigDecimal SumFlow(@Param("card") String card);
      @Query("select sum(e.sumflow) from KuyuAddPackage e where e.card =:card and e.endtime>now() and e.status=2 and e.type in(1,4)")
      BigDecimal SumFlowTal(@Param("card") String card);
+   
+     @Query("from KuyuAddPackage e where e.card =:card")
+     List<KuyuAddPackage> findFlashObject(@Param("card") String card);
 }

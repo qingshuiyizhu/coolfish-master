@@ -20,13 +20,19 @@ spring:
                                 naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy 
                                 dialect: org.hibernate.dialect.MySQL5Dialect  
            hibernate: 
-                     ddl-auto: update                   
+                     ddl-auto: update  
+#自定义配置参数
+coolfish: 
+          cotrol:
+                remax: 6
+                logstartTime: 00:00:00  
+                logendTime: 04:00:00                 
 ---
 #开发环境的配置
 spring:
        profiles: dev
        datasource: 
-                  url: jdbc:mysql://127.0.0.1:3306/coolfishes?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  url: jdbc:mysql://127.0.0.1:3306/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
                   username: root
                   password: root
 #RabbitMq配置

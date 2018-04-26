@@ -1,0 +1,66 @@
+#日志系统 slfj logback
+logging: 
+        config: classpath:logback.xml
+#        path: logs/coolfish-telprovider  
+spring: 
+       main: 
+            banner-mode: CONSOLE  
+       profiles: 
+                 active: dev                                           
+#数据库访问配置                                          
+       datasource: 
+                  type: com.alibaba.druid.pool.DruidDataSource
+                  driverClassName: com.mysql.jdbc.Driver 
+       jpa: 
+           database: MYSQL
+           show-sql: false
+           properties: 
+                      hibernate: 
+                                format_sql: false
+                                naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy 
+                                dialect: org.hibernate.dialect.MySQL5Dialect  
+           hibernate: 
+                     ddl-auto: update
+#自定义配置参数
+coolfish: 
+          cotrol:
+                remax: 6
+                logstartTime: 00:00:00  
+                logendTime: 04:00:00                   
+---
+#开发环境的配置
+spring:
+       profiles: dev
+       datasource: 
+                  url: jdbc:mysql://127.0.0.1:3306/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  username: root
+                  password: root
+#RabbitMq配置
+       rabbitmq: 
+                 host: 39.108.19.148
+                 port: 5672
+                 username: cf-m2m
+                 password: cf-m2m
+                 #listener:
+                     #simple:
+                        #acknowledge-mode: auto                   
+
+---
+#生产环境的配置
+spring:
+       profiles: prd
+#RabbitMq配置
+       rabbitmq: 
+                 host: 39.108.19.148
+                 port: 5672
+                 username: cf-m2m
+                 password: cf-m2m
+#数据源
+       datasource: 
+                  url: jdbc:mysql://rm-wz9q2m8jgt8kr63d8.mysql.rds.aliyuncs.com/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  username: wapwei
+                  password: Wapwei123  
+---
+#测试环境的配置
+spring:
+  profiles: test

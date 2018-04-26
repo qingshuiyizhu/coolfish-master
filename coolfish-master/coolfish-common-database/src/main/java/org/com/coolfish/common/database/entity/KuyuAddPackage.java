@@ -210,6 +210,17 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
     public void setProfit(BigDecimal profit) {
         this.profit = profit;
     }
+
+    @Override
+    public String toString() {
+        return "KuyuAddPackage [uid=" + uid + ", card=" + card + ", operatorName=" + operatorName
+                + ", result=" + result + ", remarks=" + remarks + ", addtime=" + addtime + ", starttime="
+                + starttime + ", endtime=" + endtime + ", cardId=" + cardId + ", packageid=" + packageid
+                + ", type=" + type + ", did=" + did + ", source=" + source + ", status=" + status
+                + ", serialNumber=" + serialNumber + ", useflow=" + useflow + ", sumflow=" + sumflow
+                + ", pid=" + pid + ", finalprice=" + finalprice + ", profit=" + profit + ", id()="
+                + getId() + "]";
+    }
     
     
 }

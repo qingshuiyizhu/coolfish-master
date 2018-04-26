@@ -57,7 +57,6 @@ public class MsisdnMonitorScheduler {
                         null, null, String.valueOf(card.getSumflow()), String.valueOf(card.getUseflow()),
                         String.valueOf(card.getPer()), 0, 0, card.getId(), null,
                         String.valueOf(card.getCard_status()));
-
                 String json = JSON.toJSONString(message).toString();
                 // 移动月套餐
                 if (CMCC == card.getOperator_type()) {

@@ -1,0 +1,62 @@
+2018-04-24 13:28:20.397 [main] INFO  org.com.coolfish.Application -Starting Application on DESKTOP-KQUPCBR with PID 10344 (D:\DevelopTools\GitHub\coolfish-master\coolfish-telprovider\target\classes started by LINGHUI in D:\DevelopTools\GitHub\coolfish-master\coolfish-telprovider)
+2018-04-24 13:28:20.397 [main] INFO  org.com.coolfish.Application -The following profiles are active: dev
+2018-04-24 13:28:20.427 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2e377400: startup date [Tue Apr 24 13:28:20 CST 2018]; root of context hierarchy
+2018-04-24 13:28:20.687 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-24 13:28:20.727 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-24 13:28:20.742 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport -Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.com.coolfish.repository.KuyuCardRepository.
+2018-04-24 13:28:20.742 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport -Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.com.coolfish.repository.KuyuAddPackageRepository.
+2018-04-24 13:28:20.912 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'taskExecutorConfig' of type [org.com.coolfish.config.TaskExecutorConfig$$EnhancerBySpringCGLIB$$bab654af] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-24 13:28:20.912 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor -Initializing ExecutorService 
+2018-04-24 13:28:20.932 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$f1795108] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-24 13:28:21.142 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-24 13:28:21.152 [main] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-24 13:28:21.182 [main] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-24 13:28:21.182 [main] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-04-24 13:28:21.192 [main] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-04-24 13:28:21.212 [main] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-24 13:28:21.282 [main] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2018-04-24 13:28:21.402 [main] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-24 13:28:21.572 [main] INFO  org.hibernate.tuple.PojoInstantiator -HHH000182: No default (no-argument) constructor for class: org.com.coolfish.entity.KuyuCard (class must be instantiated by Interceptor)
+2018-04-24 13:28:21.622 [main] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-04-24 13:28:21.777 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-24 13:28:21.912 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator -HHH000397: Using ASTQueryTranslatorFactory
+2018-04-24 13:28:22.672 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-04-24 13:28:22.672 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-24 13:28:22.682 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-04-24 13:28:22.682 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-24 13:28:22.682 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-04-24 13:28:22.692 [main] INFO  o.s.c.s.DefaultLifecycleProcessor -Starting beans in phase 2147483647
+2018-04-24 13:28:22.702 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor -No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-04-24 13:28:22.732 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -已订购月套餐的所有号码数量：26
+2018-04-24 13:28:22.902 [main] INFO  o.s.a.r.c.CachingConnectionFactory -Created new connection: rabbitConnectionFactory#4e245739:0/SimpleConnection@64b0d1fa [delegate=amqp://coolfish@114.55.132.207:5672/, localPort= 50118]
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":523796,"operatorid":202,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"94371840","tel":"1064710455227","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":519200,"operatorid":185,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"20971520","tel":"1064790138749","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":520399,"operatorid":177,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"662700032","tel":"1064935478285","useflow":"10313016.59","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":533591,"operatorid":189,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"41943040","tel":"1064935483271","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":427178,"operatorid":153,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"80740352","tel":"1064958309839","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":528992,"operatorid":140,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"52428800","tel":"1410308894976","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":534165,"operatorid":187,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"176160768","tel":"1410308996543","useflow":"7548744.76","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":534162,"operatorid":187,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"67108864","tel":"1410308996843","useflow":"11821077.56","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":534160,"operatorid":187,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"125829120","tel":"1410308996903","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":534126,"operatorid":187,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"67108864","tel":"1410308999027","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入电信月套餐队列(ctcc-monthly),封装的message为：{"cardid":534150,"operatorid":187,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"83886080","tel":"1410309005787","useflow":"8858871.92","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":501271,"operatorid":182,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"3145728","tel":"17241863466","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":501278,"operatorid":182,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"63963136","tel":"17241863473","useflow":"1677597.89","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":501279,"operatorid":182,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"1048576","tel":"17241863474","useflow":"3035138.95","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":526444,"operatorid":182,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"9437184","tel":"17241866995","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":491323,"operatorid":203,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"83886080","tel":"17892116287","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":491328,"operatorid":203,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"83886080","tel":"17892116292","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":527443,"operatorid":210,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"188743680","tel":"17892118109","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":527468,"operatorid":211,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"335544320","tel":"17892118134","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":526654,"operatorid":210,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"41943040","tel":"17892118247","useflow":"10545178.95","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  o.c.c.s.MsisdnMonitorScheduler -加入移动月套餐队列(cmcc-monthly),封装的message为：{"cardid":432884,"operatorid":182,"per":"1.00","retry":0,"slient":0,"store":0,"sumflow":"18874368","tel":"18492408556","useflow":"0.00","zid":0}
+2018-04-24 13:28:22.944 [main] INFO  org.com.coolfish.Application -Started Application in 2.738 seconds (JVM running for 3.223)
+2018-04-24 13:32:08.502 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -Application shutdown requested.
+2018-04-24 13:32:08.505 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.c.a.AnnotationConfigApplicationContext -Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2e377400: startup date [Tue Apr 24 13:28:20 CST 2018]; root of context hierarchy
+2018-04-24 13:32:08.506 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.c.s.DefaultLifecycleProcessor -Stopping beans in phase 2147483647
+2018-04-24 13:32:08.506 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-04-24 13:32:08.506 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans
+2018-04-24 13:32:08.566 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-24 13:32:08.566 [RMI TCP Connection(2)-127.0.0.1] INFO  c.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: coolfish-telprovider
-Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Version: 1.0.0-RELEASE
 Built-By: LINGHUI
 Implementation-Vendor-Id: org.com.coolfish
 Build-Jdk: 1.8.0_91

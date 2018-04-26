@@ -1,20 +1,14 @@
-                    #日志系统 slfj logback
+#日志系统 slfj logback
 logging: 
-         config: classpath:logback.xml
-         path: logs/msisdn-telprovider  
-
+         config: classpath:logback.xml     
 spring:
        main: 
-            banner-mode: CONSOLE ### 是否显示banner，可选值[true|false]
+            banner-mode: CONSOLE 
        profiles: 
                  active: dev
-       
-                   #日志系统 slfj logback
        datasource: 
                   type: com.alibaba.druid.pool.DruidDataSource
                   driverClassName: com.mysql.jdbc.Driver
-    # 下面为连接池的补充设置，应用到上面所有数据源中
-    # 初始化大小，最小，最大
                   initialSize: 5
                   minIdle: 5
                   maxActive: 20
@@ -31,40 +25,22 @@ spring:
                   filters: stat,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙 
                   connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000   # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
                   useGlobalDataSourceStat: true   # 合并多个DruidDataSource的监控数据
-    #JPA Configuration:  
        jpa: 
            database: MYSQL
-    # Show or not log for each sql query
            show-sql: true
-    #格式化sql
            properties: 
                       hibernate: 
                                 format_sql: true
                                 naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy 
                                 dialect: org.hibernate.dialect.MySQL5Dialect  # 方言
-    #实体类维护数据库表结构的具体行为：update/create/create-drop/validate/none
-    #spring.jpa.hibernate.ddl-auto=create  
 
-    ## 建表方式
            hibernate: 
                      ddl-auto: update
-    #spring.jpa.properties.hibernate.hbm2ddl.auto=update 
-    #spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect   
 
 #自定义配置参数
 coolfish: 
-         cmcc: 
-              url: http://221.178.251.182:80/internet_surfing
-              appid: 109000000114
-              token: IWyDm4ie9o12WEmLJYm0
-              groupid: 51810008262
-              password: ZJWKJ3
-              ddrcity: 15
-              appid2: G12UC2VW  
-              threadNumber: 12       
-         cotrol:
+          cotrol:
                 remax: 6
-                evmax: 3  
                 logstartTime: 00:00:00  
                 logendTime: 04:00:00
  
@@ -72,34 +48,38 @@ coolfish:
 #开发环境的配置
 spring:
        profiles: dev
-#################配置rabbitmq的安装地址、端口以及账户信息#################
+#配置rabbitmq
        rabbitmq: 
                  host: 39.108.19.148
                  port: 5672
                  username: cf-m2m
                  password: cf-m2m
-                # host: 114.55.132.207
-                # port: 5672
-                # username: coolfish
-                # password: coolfish123
-   
-       # 数据库访问配置
-       # 主数据源，默认的
        datasource:                 
-                  url: jdbc:mysql://127.0.0.1:3306/coolfishes?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  url: jdbc:mysql://127.0.0.1:3306/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
                   username: root
                   password: root
 ---
 #生产环境的配置
 spring:
        profiles: prd
-#################配置rabbitmq的安装地址、端口以及账户信息#################
+#配置Redis  
+       redis: 
+             database: 0
+             host: 39.108.19.148
+             port: 6379
+             password : coolfish888
+             timeout: 3000        
+             pool:  #redis线程池设置 
+                  max-idle: 8
+                  min-idle: 0
+                  max-active: 8
+                  max-wait: -1
+#配置rabbitmq 
        rabbitmq: 
                  host: 39.108.19.148
                  port: 5672
                  username: cf-m2m
                  password: cf-m2m
-        # 主数据源，默认的
        datasource:                
                  url: jdbc:mysql://rm-wz9q2m8jgt8kr63d8.mysql.rds.aliyuncs.com/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
                  username: wapwei

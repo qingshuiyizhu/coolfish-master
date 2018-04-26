@@ -2,9 +2,9 @@ package org.com.coolfish.scheduler;
 
 import java.util.List;
 
-import org.com.coolfish.entity.KuyuCard;
-import org.com.coolfish.message.MsisdnMessage;
-import org.com.coolfish.service.KuyuCardService;
+import org.com.coolfish.common.database.entity.KuyuCard;
+import org.com.coolfish.common.database.service.KuyuCardService;
+import org.com.coolfish.common.message.MsisdnMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -33,13 +33,7 @@ public class MsisdnMonitorScheduler {
 
     private final static int TOTAL = 2;
 
-    public final static String ScheduledTime = "0 0 4,12,20 * * ?";
-    // 定时计划任务
-    // public final static long ScheduledTime = 6 * 1000;
-    // public final static String ScheduledTime = "0 0 10,14,16 * * ?";
-    // @Scheduled(fixedDelay=ScheduledTime)
-
-    @Scheduled(cron = ScheduledTime)
+    @Scheduled(cron = "0 0 0,8,13,20 * * ?")
     public void scheduledTask() {
         logger.info("#####执行定时计划任务：查询正常状态下所有卡片及套餐信息#####");
         start();
@@ -60,8 +54,10 @@ public class MsisdnMonitorScheduler {
             // 是否月套餐
             if (MONTHLY == card.getType()) {
                 MsisdnMessage message = new MsisdnMessage(card.getTel(), card.getOperatorid(), card.getZid(),
-                        String.valueOf(card.getSumflow()), card.getUseflow().toString(),
-                        card.getPer().toString(), 0, card.getId(), null, null, null, 0);
+                        null, null, String.valueOf(card.getSumflow()), String.valueOf(card.getUseflow()),
+                        String.valueOf(card.getPer()), 0, 0, card.getId(), null,
+                        String.valueOf(card.getCard_status()));
+
                 String json = JSON.toJSONString(message).toString();
                 // 移动月套餐
                 if (CMCC == card.getOperator_type()) {

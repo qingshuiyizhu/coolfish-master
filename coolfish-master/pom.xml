@@ -7,7 +7,7 @@
 	<!-- 项目说明：这里作为聚合工程的父工程 -->
 	<groupId>org.com.coolfish</groupId>
 	<artifactId>coolfish-master</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<!-- 使用spring-boot版本 1.5.9.RELEASE -->
@@ -16,20 +16,79 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
 	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	<dependencies>
 
-	</dependencies>
+
 	<modules>
+		<module>coolfish-common-utils</module>
+		<module>coolfish-common-database</module>
+		<module>coolfish-common-webinterface</module>
 		<module>coolfish-telprovider</module>
 		<module>coolfish-telconsumer-cmcc-monthly</module>
 		<module>coolfish-telconsumer-ctcc-monthly</module>
+		<!-- <module>coolfish-telconsumer-ctcc-stoperror</module> <module>coolfish-telconsumer-cmcc-stoperror</module> -->
 	</modules>
+
+	<!-- 依赖版本管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.com.coolfish</groupId>
+				<artifactId>coolfish-common-utils</artifactId>
+				<version>1.0.0-RELEASE</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- 引入slf4j依赖 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<!-- 引入logback依赖 -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+	</dependencies>
+	<!-- 项目构建 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- <version>3.7.0</version> -->
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- <version>2.19.1</version> -->
+				<configuration>
+					<skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 
 	<!--配置镜像仓库 -->
 	<repositories>
@@ -93,7 +152,8 @@
 		</pluginRepository>
 		<pluginRepository>
 			<id>maven-db-plugin-repo</id>
-			<name>maven db plugin repository</name>
+			<name>maven 
+		db plugin repository</name>
 			<url>http://maven-db-plugin.googlecode.com/svn/maven/repo</url>
 			<layout>default</layout>
 		</pluginRepository>

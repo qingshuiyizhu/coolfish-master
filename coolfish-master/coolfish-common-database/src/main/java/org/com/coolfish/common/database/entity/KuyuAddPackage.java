@@ -211,6 +211,21 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
         this.profit = profit;
     }
 
+    public KuyuAddPackage() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+    public KuyuAddPackage(Integer id,String card, Date addtime, Date starttime, Date endtime, Integer cardId) {
+        super();
+        this.setId(id);
+        this.card = card;
+        this.addtime = addtime;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.cardId = cardId;
+    }
+
     @Override
     public String toString() {
         return "KuyuAddPackage [uid=" + uid + ", card=" + card + ", operatorName=" + operatorName
@@ -218,7 +233,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
                 + starttime + ", endtime=" + endtime + ", cardId=" + cardId + ", packageid=" + packageid
                 + ", type=" + type + ", did=" + did + ", source=" + source + ", status=" + status
                 + ", serialNumber=" + serialNumber + ", useflow=" + useflow + ", sumflow=" + sumflow
-                + ", pid=" + pid + ", finalprice=" + finalprice + ", profit=" + profit + ", id()="
+                + ", pid=" + pid + ", finalprice=" + finalprice + ", profit=" + profit + ", id="
                 + getId() + "]";
     }
     

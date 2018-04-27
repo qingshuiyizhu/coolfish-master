@@ -31,14 +31,6 @@ public class MsisdnMonitorScheduler {
 
     private final static int MONTHLY = 1;
 
-    private final static int TOTAL = 2;
-
-    @Scheduled(cron = "0 0 0,8,13,20 * * ?")
-    public void scheduledTask() {
-        logger.info("#####执行定时计划任务：查询正常状态下所有卡片及套餐信息#####");
-        start();
-    }
-
     /**
      * 1. 获取已订购月套餐的所有号码 2.查询总使用量 3.判断是不是电信还是移动的
      * 
@@ -46,7 +38,9 @@ public class MsisdnMonitorScheduler {
      * 
      * 
      */
-    public void start() {
+    @Scheduled(cron = "0 0 0,8,13,20 * * ?")
+    public void startMonthly() {
+        logger.info("#####执行定时计划任务：查询正常状态下所有月套餐卡片及信息#####");
         // 组合查询出卡号码的供应商id，套餐总流量等信息
         List<KuyuCard> list = kuyuCardService.findCardMessage();
         logger.info("已订购月套餐的所有号码数量：" + list.size());
@@ -67,9 +61,6 @@ public class MsisdnMonitorScheduler {
                     rabbitTemplate.convertAndSend("ctcc-monthly", json);
                     logger.info("加入电信月套餐队列(ctcc-monthly),封装的message为：" + json);
                 }
-                // 累积套餐
-            } else if (TOTAL == card.getType()) {
-                // logger.info("累积套餐" + card.toString());
             }
         }
 

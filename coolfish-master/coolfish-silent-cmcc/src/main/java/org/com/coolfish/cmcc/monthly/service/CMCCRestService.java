@@ -7,11 +7,8 @@ import org.com.coolfish.common.util.DecimalTools;
 import org.com.coolfish.common.webinterface.service.CMCCRequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.alibaba.fastjson.JSON;
 
 /**
  * 
@@ -26,9 +23,6 @@ public class CMCCRestService {
     private CMCCRequestService requestService;
 
     @Autowired
-    private AmqpTemplate rabbitTemplate;
-
-    @Autowired
     private ComDBService databaseService;
 
     public void handle(CMCCOperator operator, MsisdnMessage message) {
@@ -36,20 +30,17 @@ public class CMCCRestService {
         String nowApiflow = requestService.queryTraffic(operator, message);
         // 2.1使用量为null 查询失败
         if (nowApiflow == null) {
-            logger.warn("移动号码[{}]查询使用量失败，传回队列cmcc-monthly85", message.getTel());
-            // 流程查询失败，传回队列cmcc-monthly85
-            rabbitTemplate.convertAndSend("cmcc-monthly85", JSON.toJSONString(message).toString());
+            logger.warn("处于沉默期的移动号码[{}]查询使用量失败。", message.getTel());
         } else {
             // 使用量 <=0
             double subResult = DecimalTools.sub(nowApiflow, String.valueOf(1024));
             if (DecimalTools.compareTo(subResult, 0d) > -1) {
-                logger.info("处于沉默期的移动号码[{}]已使用量[{} kb],进行套餐包激活", nowApiflow);
+                logger.info("处于沉默期的移动号码[{}]已使用量[{} kb],进行套餐包激活",message.getTel(), nowApiflow);
                 flashSlientStatus(message.getTel());
             }
         }
 
     }
-
     public void flashSlientStatus(String tel) {
         databaseService.flashSlientStatus(tel);
     }

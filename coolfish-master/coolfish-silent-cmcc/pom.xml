@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>coolfish-cmcc-silent</artifactId>
-	<name>coolfish-cmcc-silent</name>
+	<artifactId>coolfish-silent-cmcc</artifactId>
+	<name>coolfish-silent-cmcc</name>
 	<url>http://maven.apache.org</url>
 	<parent>
 		<groupId>org.com.coolfish</groupId>
@@ -41,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>coolfish-cmcc-silent</finalName>
+		<finalName>coolfish-silent-cmcc</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

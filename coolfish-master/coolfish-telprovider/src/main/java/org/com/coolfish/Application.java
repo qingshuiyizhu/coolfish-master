@@ -1,6 +1,6 @@
 package org.com.coolfish;
 
-import org.com.coolfish.scheduler.MsisdnMonitorScheduler;
+import org.com.coolfish.scheduler.MsisdnEmptyScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling  
+@EnableScheduling
 public class Application implements CommandLineRunner {
     @Autowired
-    private MsisdnMonitorScheduler scheduler;
+    private MsisdnEmptyScheduler scheduler;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -19,6 +19,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        scheduler.start();
+       // scheduler.startEmpty();
+
     }
 }

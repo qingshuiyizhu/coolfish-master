@@ -36,7 +36,11 @@ public class DecimalTools {
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.add(b2).setScale(DEFAULT_SCALE).toPlainString();
     }
-
+    public static String add1(String v1, double v2) {
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        return b1.add(b2).setScale(0).toPlainString();
+    }
     public static String add(String v1, String v2) {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);

@@ -1,6 +1,7 @@
 package org.com.coolfish.common.database.service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.com.coolfish.common.database.entity.KuyuAddPackage;
@@ -48,6 +49,11 @@ public class KuyuAddPackageService {
     public List<KuyuAddPackage> findFlashObject(String tel) {
      
         return repository.findFlashObject(tel) ;
+    }
+    @Transactional
+    public void flashSilentTime(Date endtime, Integer id) {
+       repository.flashSlientTime(endtime, id);
+        
     } 
 
 }

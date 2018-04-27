@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: coolfish-cmcc-silent
+Implementation-Title: coolfish-silent-cmcc
 Implementation-Version: 1.0.0-RELEASE
 Built-By: LINGHUI
 Implementation-Vendor-Id: org.com.coolfish

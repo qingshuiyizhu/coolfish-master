@@ -27,10 +27,10 @@ spring:
                   useGlobalDataSourceStat: true   # 合并多个DruidDataSource的监控数据
        jpa: 
            database: MYSQL
-           show-sql: true
+           show-sql: false
            properties: 
                       hibernate: 
-                                format_sql: true
+                                format_sql: false
                                 naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy 
                                 dialect: org.hibernate.dialect.MySQL5Dialect  # 方言
 

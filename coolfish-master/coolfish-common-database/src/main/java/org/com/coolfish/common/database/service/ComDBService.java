@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class ComDBService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -89,18 +88,35 @@ public class ComDBService {
 
     public void flashSlientStatus(String tel) {
         List<KuyuAddPackage> addPackages = kuyuAddPackageService.findFlashObject(tel);
-        logger.info("号码[{}]沉默期订购套餐个数[{}]",tel,addPackages.size());
-        KuyuAddPackage addpackage = null;
-        for (int i = 0; i < addPackages.size(); i++) {
-             addpackage = addPackages.get(i);
-            logger.info("号码[{}]沉默期套餐修改前数据：{}",tel,addpackage );
-            long addEndTime = addpackage.getEndtime().getTime()
-                    + (new Date().getTime() - addpackage.getAddtime().getTime());
-            addpackage.setStarttime(new Date());
-            addpackage.setEndtime(new Date(addEndTime));
-            kuyuAddPackageService.save(addpackage);
-            logger.info("号码[{}]沉默期套餐修改后数据：{}",tel,addpackage );
-        }
-    }
+        logger.info("号码[{}]沉默期订购套餐个数[{}]", tel, addPackages.size());
+        for (KuyuAddPackage kuyuAddPackage : addPackages) {
+            if (null != kuyuAddPackage.getEndtime()) {
+                Date start = null;
+                if (null != kuyuAddPackage.getAddtime()) {
+                    start = kuyuAddPackage.getAddtime();
+                } else {
+                    start = kuyuAddPackage.getStarttime();
+                }
+                if (null != start) {
+                    logger.info("号码[{}]沉默期套餐修改前数据：{}", tel, kuyuAddPackage.toString());
+                    kuyuAddPackage
+                            .setEndtime(new Date(start.getTime() + kuyuAddPackage.getEndtime().getTime()));
+                    kuyuAddPackage.setStarttime(new Date());
+                    logger.info("号码[{}]沉默期套餐修改后数据：{}", tel, kuyuAddPackage.toString());
+                    kuyuAddPackageService.flashSilentTime(kuyuAddPackage.getEndtime(),
+                            kuyuAddPackage.getId());
 
+                } else {
+                    logger.error("号码[{}]套餐id=[{}]没有套餐添加时间或者开始时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
+                            kuyuAddPackage.toString());
+                }
+
+            } else {
+                logger.error("号码[{}]套餐id=[{}]没有结束套餐时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
+                        kuyuAddPackage.toString());
+            }
+
+        }
+
+    }
 }

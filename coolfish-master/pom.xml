@@ -32,6 +32,9 @@
 		<module>coolfish-telconsumer-ctcc-monthly</module>
 		<module>coolfish-silent-telprovider</module>
 		<module>coolfish-silent-cmcc</module>
+		<module>coolfish-silent-ctcc</module>
+		<module>coolfish-empty-cmcc</module>
+		<module>coolfish-empty-ctcc</module>
 		<!-- <module>coolfish-telconsumer-ctcc-stoperror</module> <module>coolfish-telconsumer-cmcc-stoperror</module> -->
 	</modules>
 

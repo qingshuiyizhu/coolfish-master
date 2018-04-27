@@ -38,19 +38,24 @@ public class KuyuCardService {
         repository.editStatus(status, tel);
     }
 
-   @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public List<KuyuCard> findCardMessage() {
-     return repository.findCardMessage();
-     }
- 
+        return repository.findCardMessage();
+    }
+
     @Transactional(readOnly = true)
     public void flashUseFlow(Integer id, String useflow, String sumflow) {
-     //   repository.flashUseFlow(id, new BigDecimal(useflow), new BigDecimal(sumflow));
+        // repository.flashUseFlow(id, new BigDecimal(useflow), new BigDecimal(sumflow));
 
     }
+
     @Transactional(readOnly = true)
     public List<KuyuCard> findSilentCardMessage() {
         return repository.findSilentCardMessage();
+    }
+
+    public List<KuyuCard> findEmptyCardMessage(Integer[] ids) {
+         return repository.findEmptyCardMessage(ids);
     }
 
 }

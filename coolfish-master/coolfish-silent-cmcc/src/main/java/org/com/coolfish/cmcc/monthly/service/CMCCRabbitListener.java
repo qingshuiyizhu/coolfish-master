@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSON;
 
 //移动月套餐队列
 @Component
-@RabbitListener(queues = "cmcc-monthly")
+@RabbitListener(queues = "cmcc-silent")
 public class CMCCRabbitListener {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -36,7 +36,7 @@ public class CMCCRabbitListener {
     @RabbitHandler
     public void process(String message) {
         // 将String 转为MsisdnMessage对象
-        logger.info("移动沉默期队列(cmcc-monthly)获取数据[{}]", message);
+        logger.info("移动沉默期队列(cmcc-silent)获取数据[{}]", message);
         MsisdnMessage msisdnMessage = JSON.parseObject(message, MsisdnMessage.class);
         long startTime = System.currentTimeMillis();
         logger.info("移动号码[{}]开始执行沉默期处理, 开始执行时间:{}, 时间戳:{}", msisdnMessage.getTel(), sdf.format(new Date(startTime)), startTime);

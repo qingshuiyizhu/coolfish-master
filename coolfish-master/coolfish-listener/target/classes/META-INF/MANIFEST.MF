@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: coolfish-telprovider
+Implementation-Title: coolfish-lister
 Implementation-Version: 1.0.0-RELEASE
 Built-By: LINGHUI
 Implementation-Vendor-Id: org.com.coolfish

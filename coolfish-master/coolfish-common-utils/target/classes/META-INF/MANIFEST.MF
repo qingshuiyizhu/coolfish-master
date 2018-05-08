@@ -4,8 +4,7 @@ Implementation-Version: 1.0.0-RELEASE
 Built-By: LINGHUI
 Implementation-Vendor-Id: org.com.coolfish
 Build-Jdk: 1.8.0_91
-Implementation-URL: http://projects.spring.io/spring-boot/coolfish-mas
- ter/coolfish-common-utils/
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/coolfish-master/coolfish-common-utils
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 

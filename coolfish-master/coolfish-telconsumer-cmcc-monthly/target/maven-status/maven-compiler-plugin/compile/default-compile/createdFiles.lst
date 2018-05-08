@@ -1,6 +1,0 @@
-org\com\coolfish\cmcc\monthly\config\RedisConfiguration.class
-org\com\coolfish\cmcc\monthly\service\AccountCacheService.class
-org\com\coolfish\Application.class
-org\com\coolfish\cmcc\monthly\service\RedisService.class
-org\com\coolfish\cmcc\monthly\service\CMCCRestService.class
-org\com\coolfish\cmcc\monthly\service\CMCCRabbitListener.class

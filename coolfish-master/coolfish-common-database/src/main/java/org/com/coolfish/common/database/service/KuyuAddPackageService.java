@@ -17,12 +17,12 @@ public class KuyuAddPackageService {
 
     @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     public KuyuAddPackage get(Integer id) {
-        return repository.findOne(id);
+        return repository.getOne(id);
     }
 
     @Transactional
@@ -37,23 +37,41 @@ public class KuyuAddPackageService {
 
     @Transactional(readOnly = true)
     public BigDecimal SumFlow(String tel) {
-      return repository.SumFlow(tel);
-      
+        return repository.SumFlow(tel);
+
     }
 
     public BigDecimal SumFlowTal(String tel) {
-          return repository.SumFlowTal(tel);
+        return repository.SumFlowTal(tel);
     }
 
     @Transactional(readOnly = true)
     public List<KuyuAddPackage> findFlashObject(String tel) {
-     
-        return repository.findFlashObject(tel) ;
+
+        return repository.findFlashObject(tel);
     }
+
     @Transactional
     public void flashSilentTime(Date endtime, Integer id) {
-       repository.flashSlientTime(endtime, id);
-        
-    } 
+        repository.flashSlientTime(endtime, id);
+
+    }
+
+    @Transactional(readOnly = true)
+    public BigDecimal findSumFlows(Integer cardId) {
+       
+        return repository.findSumFlows(cardId);
+    }
+  
+    @Transactional(readOnly = true)
+    public BigDecimal findMonthlyNullSumFlow(Integer id) {
+     
+        return  repository.findMonthlyNullSumFlow(id);
+    }
+    @Transactional(readOnly = true)
+    public List<KuyuAddPackage> findMonthlyHaveSumFlow() {
+      
+        return  repository.findMonthlyHaveSumFlow();
+    }
 
 }

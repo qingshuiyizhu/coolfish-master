@@ -6,40 +6,43 @@ package org.com.coolfish.common.webinterface.cmcc.xml.content;
  */
 @SuppressWarnings("unused")
 public class TFJContent {
-	// 集团编码
-	private String groupid="";
-	// 号码
-	private String telnum="";
-	// 操作类型
-	private String oprtype="";
-	// 操作原因
-	private String reason="";
+    // 集团编码
+    private String groupid = "";
 
-	public void setGroupid(String groupid) {
-		this.groupid = groupid;
-	}
+    // 号码
+    private String telnum = "";
 
-	public void setTelnum(String telnum) {
-		this.telnum = telnum;
-	}
+    // 操作类型
+    private String oprtype = "";
 
-	public void setOprtype(String oprtype) {
-		this.oprtype = oprtype;
-	}
+    // 操作原因
+    private String reason = "";
 
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
+    public void setGroupid(String groupid) {
+        this.groupid = groupid;
+    }
 
-	public TFJContent(String groupid, String telnum, String oprtype, String reason) {
-		super();
-		this.groupid = groupid;
-		this.telnum = telnum;
-		this.oprtype = oprtype;
-		this.reason = reason;
-	}
+    public void setTelnum(String telnum) {
+        this.telnum = telnum;
+    }
 
-	public TFJContent() {
-	}
+    public void setOprtype(String oprtype) {
+        this.oprtype = oprtype;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public TFJContent(String groupid, String telnum, String oprtype, String reason) {
+        super();
+        this.groupid = groupid;
+        this.telnum = telnum;
+        this.oprtype = oprtype;
+        this.reason = reason;
+    }
+
+    public TFJContent() {
+    }
 
 }

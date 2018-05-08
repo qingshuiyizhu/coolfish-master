@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.1.5</version>
+			<version>1.1.9</version>
 		</dependency>
 		<!-- MySql驱动 -->
 		<dependency>

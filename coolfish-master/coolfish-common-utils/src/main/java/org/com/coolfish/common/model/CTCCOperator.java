@@ -1,12 +1,31 @@
 package org.com.coolfish.common.model;
 
 public class CTCCOperator {
+    private Integer id;
+
+    private String operator_name;
 
     private String usercode;
 
     private String password;
 
     private String keys;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getOperator_name() {
+        return operator_name;
+    }
+
+    public void setOperator_name(String operator_name) {
+        this.operator_name = operator_name;
+    }
 
     public String getUsercode() {
         return usercode;
@@ -56,5 +75,4 @@ public class CTCCOperator {
         return "CTCCOperator [usercode=" + usercode + ", password=" + password + ", keys=" + keys + "]";
     }
 
-    
 }

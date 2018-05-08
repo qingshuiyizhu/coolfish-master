@@ -11,6 +11,6 @@ public interface KuyuFlowDetailRepository extends JpaRepository<KuyuFlowDetail, 
 
     @Query("select max(e.time) from KuyuFlowDetail e where e.tel =:tel")
     Date findMaxSaveTime(@Param("tel") String tel);
-    @Query("select new KuyuFlowDetail(e.apiflow,e.time) from KuyuFlowDetail e where e.tel =:tel and e.time=(select max(del.time) from KuyuFlowDetail del)")
-    KuyuFlowDetail findLastRecord(@Param("tel") String tel);
+    @Query("select new KuyuFlowDetail(e.apiflow,e.time) from KuyuFlowDetail e where e.cardid =:cardid and e.time=(select max(del.time) from KuyuFlowDetail del)")
+    KuyuFlowDetail findLastRecord(@Param("cardid") Integer cardid);
 }

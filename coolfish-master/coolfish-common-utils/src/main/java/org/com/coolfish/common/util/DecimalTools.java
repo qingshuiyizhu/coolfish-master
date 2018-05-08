@@ -12,18 +12,25 @@ public class DecimalTools {
      * 默认保留2位小数
      */
     private static final int DEFAULT_SCALE = 2;
-    
+
     /**
      * v1与v2进行比较，0: v1==v2 1: v1>v2 -1:v1<v2
+     * 
      * @return
      */
     public static int compareTo(double v1, double v2) {
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
-        
+
         return b1.compareTo(b2);
     }
 
+    public static int compareTo(BigDecimal b1, String v2) {
+     
+        BigDecimal b2 = new BigDecimal(v2);
+
+        return b1.compareTo(b2);
+    }
     /**
      * 精确的加法运算。
      * 
@@ -36,11 +43,13 @@ public class DecimalTools {
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.add(b2).setScale(DEFAULT_SCALE).toPlainString();
     }
+
     public static String add1(String v1, double v2) {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.add(b2).setScale(0).toPlainString();
     }
+
     public static String add(String v1, String v2) {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);
@@ -64,6 +73,10 @@ public class DecimalTools {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);
         return b1.subtract(b2).doubleValue();
+    }  
+    public static double sub(BigDecimal v1, String v2) {
+        BigDecimal b2 = new BigDecimal(v2);
+        return v1.subtract(b2).doubleValue();
     }
 
     /**
@@ -125,6 +138,15 @@ public class DecimalTools {
         }
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);
+        return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+    public static double div(String v1, BigDecimal v2, int scale) {
+        if (scale < 0) {
+            throw new IllegalArgumentException("The scale must be a positive integer or zero");
+        }
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = v2;
         return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 

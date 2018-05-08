@@ -3,19 +3,24 @@ package org.com.coolfish.common.message;
 import java.util.Date;
 
 public class MsisdnMessage {
+    private Integer cardid;
 
-    private String tel;
+    private String iphone;
+
+    private String iccid;
 
     // 对应的kuyu_operacor的主键ID
     private Integer operatorid;
 
+    private Integer operatorType;
+
     // 账号id
     private Integer zid;
 
-    // 使用在用套餐之前的api流量
+    // 使用在用套餐之前的api流量 累计套餐
     private String beforeApiFlow;
 
-    // 套餐剩余流量
+    // 套餐剩余流量 累计套餐
     private String leftflow;
 
     // 总流量
@@ -27,17 +32,29 @@ public class MsisdnMessage {
     // 流量显示比例
     private String per;
 
-    // 重试次数
-    private Integer retry;
-
-    // 是否处于沉默期 0不是 1是
-    private Integer slient = 0;
-
-    private Integer cardid;
-
     private Date endTime;
 
+    // 卡状态描述
     private String cardStatus;
+
+    // 卡状态代码
+    private String startusCode;
+
+    public String getIccid() {
+        return iccid;
+    }
+
+    public void setIccid(String iccid) {
+        this.iccid = iccid;
+    }
+
+    public String getStartusCode() {
+        return startusCode;
+    }
+
+    public void setStartusCode(String startusCode) {
+        this.startusCode = startusCode;
+    }
 
     public Date getEndTime() {
         return endTime;
@@ -47,13 +64,13 @@ public class MsisdnMessage {
         this.endTime = endTime;
     }
 
-    public String getTel() {
-        this.tel = tel == null ? null : tel.trim();
-        return tel;
+    public String getIphone() {
+        this.iphone = iphone == null ? null : iphone.trim();
+        return iphone;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setIphone(String iphone) {
+        this.iphone = iphone;
     }
 
     public Integer getOperatorid() {
@@ -74,7 +91,7 @@ public class MsisdnMessage {
     }
 
     public String getBeforeApiFlow() {
-        this.beforeApiFlow = beforeApiFlow == null ? null : beforeApiFlow.trim();
+        this.beforeApiFlow = beforeApiFlow == null ? "0.00" : beforeApiFlow.trim();
         return beforeApiFlow;
     }
 
@@ -83,7 +100,7 @@ public class MsisdnMessage {
     }
 
     public String getLeftflow() {
-        this.leftflow = leftflow == null ? null : leftflow.trim();
+        this.leftflow = leftflow == null ? "0.00" : leftflow.trim();
         return leftflow;
     }
 
@@ -92,7 +109,7 @@ public class MsisdnMessage {
     }
 
     public String getSumflow() {
-        this.sumflow = sumflow == null ? null : sumflow.trim();
+        this.sumflow = sumflow == null ? "0.00" : sumflow.trim();
 
         return sumflow;
     }
@@ -102,7 +119,7 @@ public class MsisdnMessage {
     }
 
     public String getUseflow() {
-        this.useflow = useflow == null ? null : useflow.trim();
+        this.useflow = useflow == null ? "0.00" : useflow.trim();
         return useflow;
     }
 
@@ -116,22 +133,6 @@ public class MsisdnMessage {
 
     public void setPer(String per) {
         this.per = per;
-    }
-
-    public Integer getRetry() {
-        return retry;
-    }
-
-    public void setRetry(Integer retry) {
-        this.retry = retry;
-    }
-
-    public Integer getSlient() {
-        return slient;
-    }
-
-    public void setSlient(Integer slient) {
-        this.slient = slient;
     }
 
     public Integer getCardid() {
@@ -151,27 +152,12 @@ public class MsisdnMessage {
         this.cardStatus = cardStatus;
     }
 
-    public MsisdnMessage() {
-        super();
+    public Integer getOperatorType() {
+        return operatorType;
     }
 
-    public MsisdnMessage(String tel, Integer operatorid, Integer zid, String beforeApiFlow, String leftFlow,
-            String sumflow, String useflow, String per, Integer retry, Integer slient, Integer cardid,
-            Date endTime, String cardStatus) {
-        super();
-        this.tel = tel;
-        this.operatorid = operatorid;
-        this.zid = zid;
-        this.beforeApiFlow = beforeApiFlow;
-        this.leftflow = leftFlow;
-        this.sumflow = sumflow;
-        this.useflow = useflow;
-        this.per = per;
-        this.retry = retry;
-        this.slient = slient;
-        this.cardid = cardid;
-        this.endTime = endTime;
-        this.cardStatus = cardStatus;
+    public void setOperatorType(Integer operatorType) {
+        this.operatorType = operatorType;
     }
 
 }

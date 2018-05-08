@@ -6,36 +6,30 @@ import java.util.List;
 
 import org.com.coolfish.common.database.entity.KuyuAddPackage;
 import org.com.coolfish.common.database.entity.KuyuCard;
-import org.com.coolfish.common.database.entity.KuyuCardSimstate;
 import org.com.coolfish.common.database.entity.KuyuFlowDetail;
 import org.com.coolfish.common.message.MsisdnMessage;
 import org.com.coolfish.common.util.DecimalTools;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class ComDBService {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Autowired
     private KuyuCardService kuyuCardService;
-
+   
     @Autowired
     private KuyuAddPackageService kuyuAddPackageService;
-
-    @Autowired
-    private KuyuCardSimstateService kuyuCardSimstateService;
-
+ 
     @Autowired
     private KuyuFlowDetailService kuyuFlowDetailService;
 
     // 记录每日流量使用量
     public void EveryDayLogWriter(MsisdnMessage message, double realApifow) {
-        KuyuFlowDetail flowDetail = kuyuFlowDetailService.findLastRecord(message.getTel());
-        logger.info("号码[{}]记录每日流量使用量,找到KuyuFlowDetail表中最新记录：{}", message.getTel(), flowDetail.toString());
+        KuyuFlowDetail flowDetail = kuyuFlowDetailService.findLastRecord(message.getCardid());
         if (flowDetail != null) {
+            log.info("物联网卡ID[{}]记录每日流量使用量,找到KuyuFlowDetail表中最新记录：{}", message.getCardid(), flowDetail.toString());
             Date now = new Date();
             long nd = 1000 * 20 * 60 * 60;// 20个小时的毫秒
             // 计算数据库最新记录和现在相隔的时间
@@ -48,47 +42,34 @@ public class ComDBService {
             double dayFlow = DecimalTools.sub(message.getUseflow(), userflow);
             if (divResult > 0) {
                 KuyuFlowDetail kuyuFlowDetail = new KuyuFlowDetail();
-                kuyuFlowDetail.setTel(message.getTel());
+                kuyuFlowDetail.setTel(message.getIphone());
                 kuyuFlowDetail.setCardid(message.getCardid());
                 kuyuFlowDetail.setTime(new Date());
                 kuyuFlowDetail.setApiflow(new BigDecimal(Double.toString(realApifow)));
                 kuyuFlowDetail.setDayflow(new BigDecimal(Double.toString(dayFlow)));
                 // 切换到该套餐到现在的总使用量
                 kuyuFlowDetail.setUseflow(new BigDecimal(message.getUseflow()));
-                logger.info("号码[{}]记录每日流量使用量,KuyuFlowDetail表中最新插入记录：{}", message.getTel(),
+                log.info("物联网卡ID[{}]记录每日流量使用量,KuyuFlowDetail表中最新插入记录：{}", message.getCardid(),
                         kuyuFlowDetail.toString());
                 kuyuFlowDetailService.save(kuyuFlowDetail);
             }
         }
-        // kuyuCardService.flashUseFlow(message.getCardid(), message.getUseflow(),
-        // message.getSumflow());
+     
         KuyuCard kuyuCard = kuyuCardService.get(message.getCardid());
-        logger.info("号码[{}]记录每日流量使用量,更新前记录：{}", message.getTel(), kuyuCard.toString());
+        log.info("物联网卡ID[{}]记录每日流量使用量,更新前记录：{}", message.getCardid(), kuyuCard.toString());
         if (kuyuCard != null) {
             kuyuCard.setSumflow(new BigDecimal(message.getSumflow()));
             kuyuCard.setUseflow(new BigDecimal(message.getUseflow()));
-            kuyuCardService.save(kuyuCard);
+            kuyuCardService.flashDayFlow(message.getCardid(), new BigDecimal(message.getUseflow()),
+                    new BigDecimal(message.getSumflow()));
         }
     }
 
-    // 停机成功 ，更新到数据库,并记录停机日志
-    public void updateMsisdnSatus(MsisdnMessage message) {
-        kuyuCardService.editStatus(4, message.getTel());
-        KuyuCardSimstate simsate = new KuyuCardSimstate();
-        simsate.setAddtime(new Date());
-        simsate.setCardId(message.getCardid());
-        simsate.setCard(message.getTel());
-        simsate.setType(1);
-        simsate.setResult(String.valueOf(0));
-        simsate.setStatus(2);
-        simsate.setOperatorName("流量监控停机");
-
-        kuyuCardSimstateService.save(simsate);
-    }
+     
 
     public void flashSlientStatus(String tel) {
         List<KuyuAddPackage> addPackages = kuyuAddPackageService.findFlashObject(tel);
-        logger.info("号码[{}]沉默期订购套餐个数[{}]", tel, addPackages.size());
+        log.info("号码[{}]沉默期订购套餐个数[{}]", tel, addPackages.size());
         for (KuyuAddPackage kuyuAddPackage : addPackages) {
             if (null != kuyuAddPackage.getEndtime()) {
                 Date start = null;
@@ -98,21 +79,21 @@ public class ComDBService {
                     start = kuyuAddPackage.getStarttime();
                 }
                 if (null != start) {
-                    logger.info("号码[{}]沉默期套餐修改前数据：{}", tel, kuyuAddPackage.toString());
+                    log.info("号码[{}]沉默期套餐修改前数据：{}", tel, kuyuAddPackage.toString());
                     kuyuAddPackage
                             .setEndtime(new Date(start.getTime() + kuyuAddPackage.getEndtime().getTime()));
                     kuyuAddPackage.setStarttime(new Date());
-                    logger.info("号码[{}]沉默期套餐修改后数据：{}", tel, kuyuAddPackage.toString());
+                    log.info("号码[{}]沉默期套餐修改后数据：{}", tel, kuyuAddPackage.toString());
                     kuyuAddPackageService.flashSilentTime(kuyuAddPackage.getEndtime(),
                             kuyuAddPackage.getId());
 
                 } else {
-                    logger.error("号码[{}]套餐id=[{}]没有套餐添加时间或者开始时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
+                    log.error("号码[{}]套餐id=[{}]没有套餐添加时间或者开始时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
                             kuyuAddPackage.toString());
                 }
 
             } else {
-                logger.error("号码[{}]套餐id=[{}]没有结束套餐时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
+                log.error("号码[{}]套餐id=[{}]没有结束套餐时间，无法处理沉默期：{}", tel, kuyuAddPackage.getId(),
                         kuyuAddPackage.toString());
             }
 

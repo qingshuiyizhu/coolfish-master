@@ -1,6 +1,7 @@
 org\com\coolfish\common\database\entity\KuyuAddPackage.class
 org\com\coolfish\common\database\service\ComDBService.class
 org\com\coolfish\common\database\repository\KuyuCardRepository.class
+org\com\coolfish\common\database\config\DruidDBConfig.class
 org\com\coolfish\common\database\entity\KuyuFlowDetail.class
 org\com\coolfish\common\database\repository\KuyuFlowDetailRepository.class
 org\com\coolfish\common\database\service\KuyuAccountService.class

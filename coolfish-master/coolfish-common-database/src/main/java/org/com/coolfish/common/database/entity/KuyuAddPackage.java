@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 @Table(name = "kuyu_add_package")
@@ -114,7 +115,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
     public void setEndtime(Date endtime) {
         this.endtime = endtime;
     }
-
+    @Column(name = "card_id")
     public Integer getCardId() {
         return cardId;
     }
@@ -218,7 +219,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
 
     public KuyuAddPackage(Integer id,String card, Date addtime, Date starttime, Date endtime, Integer cardId) {
         super();
-        this.setId(id);
+        this.id =id;
         this.card = card;
         this.addtime = addtime;
         this.starttime = starttime;
@@ -234,7 +235,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
                 + ", type=" + type + ", did=" + did + ", source=" + source + ", status=" + status
                 + ", serialNumber=" + serialNumber + ", useflow=" + useflow + ", sumflow=" + sumflow
                 + ", pid=" + pid + ", finalprice=" + finalprice + ", profit=" + profit + ", id="
-                + getId() + "]";
+                + id + "]";
     }
     
     

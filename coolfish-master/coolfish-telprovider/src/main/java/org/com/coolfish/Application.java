@@ -1,17 +1,35 @@
 package org.com.coolfish;
 
-import org.com.coolfish.scheduler.MsisdnEmptyScheduler;
+import org.com.coolfish.scheduler.EmptyScheduler;
+import org.com.coolfish.scheduler.MonthlyScheduler;
+import org.com.coolfish.scheduler.SilentScheduler;
+import org.com.coolfish.scheduler.StartMonthlyHaveSumFlowScheduler;
+import org.com.coolfish.scheduler.StopMonthlyNullSumFlow;
+import org.com.coolfish.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
 public class Application implements CommandLineRunner {
     @Autowired
-    private MsisdnEmptyScheduler scheduler;
+    private EmptyScheduler msisdnEmptyScheduler;
+
+    @Autowired
+    private MonthlyScheduler msisdnMonthlyScheduler;
+
+    @Autowired
+    private SilentScheduler msisdnSilentScheduler;
+
+    @Autowired
+    private StopMonthlyNullSumFlow stopMonthlyNullSumFlow;
+
+    @Autowired
+    private StartMonthlyHaveSumFlowScheduler startMonthlyHaveSumFlowScheduler;
+
+    @Autowired
+    private ActionService actionService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -19,7 +37,11 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       // scheduler.startEmpty();
+     System.out.println("开始执行计划");
+        //actionService.test1(2);
+         stopMonthlyNullSumFlow.stopMonthlyNullSumFlow();
+        // startMonthlyHaveSumFlowScheduler.startScheduler();
 
     }
+
 }

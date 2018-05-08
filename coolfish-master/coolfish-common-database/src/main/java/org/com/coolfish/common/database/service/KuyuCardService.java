@@ -1,5 +1,6 @@
 package org.com.coolfish.common.database.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.com.coolfish.common.database.entity.KuyuCard;
@@ -15,12 +16,12 @@ public class KuyuCardService {
 
     @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     public KuyuCard get(Integer id) {
-        return repository.findOne(id);
+        return repository.getOne(id);
     }
 
     @Transactional
@@ -34,28 +35,42 @@ public class KuyuCardService {
     }
 
     @Transactional
-    public void editStatus(Integer status, String tel) {
-        repository.editStatus(status, tel);
+    public void editStatus(Integer status, Integer cardId) {
+        repository.editStatus(status, cardId);
     }
 
     @Transactional(readOnly = true)
-    public List<KuyuCard> findCardMessage() {
-        return repository.findCardMessage();
+    public List<KuyuCard> findMonthlyCardMessage() {
+        return repository.findMonthlyCardMessage();
     }
-
-    @Transactional(readOnly = true)
-    public void flashUseFlow(Integer id, String useflow, String sumflow) {
-        // repository.flashUseFlow(id, new BigDecimal(useflow), new BigDecimal(sumflow));
-
-    }
+ 
 
     @Transactional(readOnly = true)
     public List<KuyuCard> findSilentCardMessage() {
         return repository.findSilentCardMessage();
     }
 
+    @Transactional(readOnly = true)
     public List<KuyuCard> findEmptyCardMessage(Integer[] ids) {
-         return repository.findEmptyCardMessage(ids);
+        return repository.findEmptyCardMessage(ids);
+    }
+
+    @Transactional
+    public void flashDayFlow(Integer cardid, BigDecimal userFlow, BigDecimal sumFlow) {
+        repository.flashDayFlow(cardid, userFlow, sumFlow);
+
+    }
+
+    @Transactional
+    public void flashPackageid(Integer packageid, Integer cardid) {
+        repository.flashDayFlow(packageid, cardid);
+
+    }
+  
+    @Transactional(readOnly = true)
+    public List<KuyuCard> findMonthlyNullSumFlow() {
+         
+        return repository.findMonthlyNullSumFlow();
     }
 
 }

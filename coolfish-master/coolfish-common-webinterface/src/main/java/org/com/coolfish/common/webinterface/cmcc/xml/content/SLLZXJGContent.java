@@ -1,9 +1,9 @@
 package org.com.coolfish.common.webinterface.cmcc.xml.content;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties.Content;
+
 
 @SuppressWarnings("unused")
-public class SLLZXJGContent extends Content {
+public class SLLZXJGContent{
 	// 地市编码
 	private String ddr_city="";
 	// 订单编号

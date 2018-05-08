@@ -8,25 +8,23 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @Configuration
 // @ComponentScan("org.com.dev.socket")
 @EnableAsync //开启异步任务
 @EnableScheduling // 开启定时任务
-
 public class TaskExecutorConfig implements AsyncConfigurer {
 	private String ThreadNamePrefix = "Executor-";
 	@Override
 	public Executor getAsyncExecutor() {
 		ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
 		// 线程池维护线程的最少数量
-		taskExecutor.setCorePoolSize(2);
+		taskExecutor.setCorePoolSize(10);
 		// 线程池维护线程的最大数量
-		taskExecutor.setMaxPoolSize(2);
+		taskExecutor.setMaxPoolSize(20);
 		// 线程池所使用的缓冲队列
-		taskExecutor.setQueueCapacity(3);
+		taskExecutor.setQueueCapacity(5);
 		// 线程池维护线程所允许的空闲时间 超出这个时间将进行回收  
 		taskExecutor.setKeepAliveSeconds(30000);
 		taskExecutor.setThreadNamePrefix(ThreadNamePrefix);
@@ -59,15 +57,5 @@ public class TaskExecutorConfig implements AsyncConfigurer {
 	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
 		return null;
 	}
-	
-	
-	//定时任务：
-        @Scheduled(cron = "0 0/10 * * * ?") // 每10分钟执行一次
-	public void tesk() {
-            
-            
-            
-        }
-	
-	
+ 	
 }

@@ -15,12 +15,12 @@ public class KuyuFlowDetailService {
 
     @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     public KuyuFlowDetail get(Integer id) {
-        return repository.findOne(id);
+        return repository.getOne(id);
     }
 
     @Transactional
@@ -35,8 +35,8 @@ public class KuyuFlowDetailService {
    
 
     @Transactional(readOnly = true)
-    public KuyuFlowDetail findLastRecord(String tel) {
-        return repository.findLastRecord(tel);
+    public KuyuFlowDetail findLastRecord(Integer cardid) {
+        return repository.findLastRecord(cardid);
     }
    
 

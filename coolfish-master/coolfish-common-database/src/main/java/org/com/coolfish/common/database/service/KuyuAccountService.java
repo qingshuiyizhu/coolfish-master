@@ -15,12 +15,12 @@ public class KuyuAccountService {
 
     @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     public KuyuAccount get(Integer id) {
-        return repository.findOne(id);
+        return repository.getOne(id);
     }
 
     @Transactional
@@ -37,9 +37,10 @@ public class KuyuAccountService {
     public List<KuyuAccount> findAccount() {
         return repository.findAccount();
     }
+
     @Transactional(readOnly = true)
     public KuyuAccount getOneAccuount(Integer id) {
-        return repository.getOneOperator(id);
-    } 
+        return repository.getOneAccuount(id);
+    }
 
 }

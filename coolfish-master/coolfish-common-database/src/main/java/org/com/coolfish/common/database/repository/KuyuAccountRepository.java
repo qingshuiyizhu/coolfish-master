@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface KuyuAccountRepository extends JpaRepository<KuyuAccount, Integer> {
-    @Query("select new KuyuAccount(e.id,e.text) from KuyuAccount e")
+    @Query("select new KuyuAccount(e.id,e.tetle,e.text) from KuyuAccount e")
     List<KuyuAccount> findAccount();
 
-    @Query("select new KuyuAccount(e.id,e.text) from KuyuAccount e where id=:id")
-    KuyuAccount getOneOperator(@Param("id") Integer id);
+    @Query("select new KuyuAccount(e.id, e.tetle,e.text) from KuyuAccount e where id=:id")
+    KuyuAccount getOneAccuount(@Param("id") Integer id);
 }

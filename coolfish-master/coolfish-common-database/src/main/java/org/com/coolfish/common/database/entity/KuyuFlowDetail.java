@@ -90,7 +90,7 @@ public class KuyuFlowDetail extends IdEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "KuyuFlowDetail [id=" + getId() + ", cardid=" + cardid + ", tel=" + tel + ", apiflow="
+        return "KuyuFlowDetail [id=" +id + ", cardid=" + cardid + ", tel=" + tel + ", apiflow="
                 + apiflow + ", time=" + time + ", dayflow=" + dayflow + ", useflow=" + useflow + "]";
     }
 

@@ -1,0 +1,69 @@
+#日志系统 slfj logback
+logging: 
+         config: classpath:logback.xml     
+spring:
+       main: 
+            banner-mode: CONSOLE 
+       profiles: 
+                 active: dev
+       jpa: 
+           database: MYSQL
+           show-sql: false
+           properties: 
+                      hibernate: 
+                                format_sql: false
+                                naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy 
+                                dialect: org.hibernate.dialect.MySQL5Dialect  
+           hibernate: 
+                     ddl-auto: update       
+
+#自定义配置参数
+coolfish: 
+          cotrol:
+                remax: 6
+                logstartTime: 00:00:00  
+                logendTime: 04:00:00
+ 
+---
+#开发环境的配置
+spring:
+       profiles: dev
+#配置rabbitmq
+       rabbitmq: 
+                 host: 39.108.19.148
+                 port: 5672
+                 username: cf-m2m
+                 password: cf-m2m
+       datasource: 
+                  type: com.alibaba.druid.pool.DruidDataSource
+                  driverClassName: com.mysql.jdbc.Driver                
+                  url: jdbc:mysql://127.0.0.1:3306/coolfish?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+                  username: root
+                  password: root
+---
+#生产环境的配置
+spring:
+       profiles: prd
+#配置Redis  
+       redis: 
+             database: 0
+             host: 10.31.76.24
+             port: 6379
+             password : coolfish888
+             timeout: 3000 
+             jedis:       
+                   pool:  #redis线程池设置 
+                        max-idle: 5
+                        min-idle: 0
+                        max-active: 100
+                        max-wait: -1
+#配置rabbitmq 
+       rabbitmq: 
+                 host: 10.31.76.24
+                 port: 5672
+                 username: cf-m2m
+                 password: cf-m2m
+---
+#测试环境的配置
+spring:
+  profiles: test

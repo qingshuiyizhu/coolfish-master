@@ -65,14 +65,14 @@ public class RestTemplateHttpClientConfig {
             Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create().register("http", PlainConnectionSocketFactory.getSocketFactory()).register("https", sslConnectionSocketFactory).build();// 注册http和https请求
             PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);// 开始设置连接池
             poolingHttpClientConnectionManager.setMaxTotal(300); // 最大连接数300
-            poolingHttpClientConnectionManager.setDefaultMaxPerRoute(50); // 同路由并发数50
+            poolingHttpClientConnectionManager.setDefaultMaxPerRoute(100); // 同路由并发数100
             httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);
             httpClientBuilder.setRetryHandler(new DefaultHttpRequestRetryHandler(2, true));// 重试次数
             HttpClient httpClient = httpClientBuilder.build();
             HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);// httpClient连接配置
-            clientHttpRequestFactory.setConnectTimeout(5000);// 连接超时
-            clientHttpRequestFactory.setReadTimeout(20000);// 数据读取超时时间
-            clientHttpRequestFactory.setConnectionRequestTimeout(500);// 连接不够用的等待时间
+            clientHttpRequestFactory.setConnectTimeout(5*1000);// 连接超时
+            clientHttpRequestFactory.setReadTimeout(20*1000);// 数据读取超时时间
+            clientHttpRequestFactory.setConnectionRequestTimeout(15*1000);// 连接不够用的等待时间
             return clientHttpRequestFactory;
         } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
             logger.error(e.getMessage());

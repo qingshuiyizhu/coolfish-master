@@ -10,62 +10,66 @@
 	<version>1.0.0-RELEASE</version>
 	<packaging>pom</packaging>
 
-	<!-- 使用spring-boot版本 1.5.9.RELEASE -->
+	<!-- 使用spring-boot版本 2.0.0.RELEASE -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
+		<version>2.0.0.RELEASE</version>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Finchley.RC1</spring-cloud.version>
 	</properties>
-
-
 	<modules>
 		<module>coolfish-common-utils</module>
 		<module>coolfish-common-database</module>
 		<module>coolfish-common-webinterface</module>
 		<module>coolfish-telprovider</module>
-		<module>coolfish-telconsumer-cmcc-monthly</module>
-		<module>coolfish-telconsumer-ctcc-monthly</module>
-		<module>coolfish-silent-telprovider</module>
-		<module>coolfish-silent-cmcc</module>
-		<module>coolfish-silent-ctcc</module>
-		<module>coolfish-empty-cmcc</module>
-		<module>coolfish-empty-ctcc</module>
-		<!-- <module>coolfish-telconsumer-ctcc-stoperror</module> <module>coolfish-telconsumer-cmcc-stoperror</module> -->
+		<module>coolfish-spi</module>
+		<module>coolfish-listener</module>
+		<module>coolfish-discovery</module>
 	</modules>
-
 	<!-- 依赖版本管理 -->
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<dependency>
 				<groupId>org.com.coolfish</groupId>
 				<artifactId>coolfish-common-utils</artifactId>
 				<version>1.0.0-RELEASE</version>
 			</dependency>
 		</dependencies>
+
+
+
+
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>provided</scope>
-		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 		<!-- 引入slf4j依赖 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-
+      
 		<!-- 引入logback依赖 -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -102,6 +106,14 @@
 
 	<!--配置镜像仓库 -->
 	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>apache-repo</id>
 			<name>apache Repository</name>

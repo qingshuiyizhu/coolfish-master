@@ -1,6 +1,10 @@
 package org.com.coolfish.common.model;
 
 public class CMCCOperator {
+    private Integer id;
+
+    private String operator_name;
+
     private String appid;
 
     private String token;
@@ -12,6 +16,22 @@ public class CMCCOperator {
     private String ddrcity;
 
     private String appid2;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getOperator_name() {
+        return operator_name;
+    }
+
+    public void setOperator_name(String operator_name) {
+        this.operator_name = operator_name;
+    }
 
     public void setAppid(String appid) {
         this.appid = appid;
@@ -52,7 +72,7 @@ public class CMCCOperator {
     public String getPassword() {
         return password;
     }
- 
+
     public String getDdrcity() {
         return ddrcity;
     }
@@ -66,5 +86,5 @@ public class CMCCOperator {
         return "CMCCOperator [appid=" + appid + ", token=" + token + ", groupid=" + groupid + ", password="
                 + password + ", ddrcity=" + ddrcity + ", appid2=" + appid2 + "]";
     }
-    
+
 }

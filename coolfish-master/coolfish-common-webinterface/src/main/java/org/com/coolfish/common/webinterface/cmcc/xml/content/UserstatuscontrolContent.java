@@ -6,55 +6,57 @@ package org.com.coolfish.common.webinterface.cmcc.xml.content;
  */
 @SuppressWarnings("unused")
 public class UserstatuscontrolContent {
-	// 集团编码
-	private String groupid="";
-	// 物联网号码
-	private String msisdn="";
-	//需要变更成的结果状态
-	private String SUB_SERVICE_STATUS="";
-	// 服务类型
-	private String service="";
-	// 操作类型
-	private String oprtype="";
-	
-	public void setGroupid(String groupid) {
-		this.groupid = groupid;
-	}
+    // 集团编码
+    private String groupid = "";
 
-	public void setMsisdn(String msisdn) {
-		this.msisdn = msisdn;
-	}
+    // 物联网号码
+    private String msisdn = "";
 
-	public void setService(String service) {
-		this.service = service;
-	}
+    // 需要变更成的结果状态
+    private String SUB_SERVICE_STATUS = "";
 
-	public void setOprtype(String oprtype) {
-		this.oprtype = oprtype;
-	}
+    // 服务类型
+    private String service = "";
 
-	public UserstatuscontrolContent(String groupid, String msisdn, String service, String oprtype) {
-		super();
-		this.groupid = groupid;
-		this.msisdn = msisdn;
-		this.service = service;
-		this.oprtype = oprtype;
-	}
-	
-	
+    // 操作类型
+    private String oprtype = "";
 
-	public UserstatuscontrolContent(String groupid, String msisdn, String sUB_SERVICE_STATUS, String service,
-			String oprtype) {
-		super();
-		this.groupid = groupid;
-		this.msisdn = msisdn;
-		SUB_SERVICE_STATUS = sUB_SERVICE_STATUS;
-		this.service = service;
-		this.oprtype = oprtype;
-	}
+    public void setGroupid(String groupid) {
+        this.groupid = groupid;
+    }
 
-	public UserstatuscontrolContent() {
-		super();
-	}
+    public void setMsisdn(String msisdn) {
+        this.msisdn = msisdn;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public void setOprtype(String oprtype) {
+        this.oprtype = oprtype;
+    }
+
+    public UserstatuscontrolContent(String groupid, String msisdn, String service, String oprtype) {
+        super();
+        this.groupid = groupid;
+        this.msisdn = msisdn;
+        this.service = service;
+        this.oprtype = oprtype;
+    }
+
+    public UserstatuscontrolContent(String groupid, String msisdn, String sUB_SERVICE_STATUS, String service,
+            String oprtype) {
+        super();
+        this.groupid = groupid;
+        this.msisdn = msisdn;
+        SUB_SERVICE_STATUS = sUB_SERVICE_STATUS;
+        this.service = service;
+        this.oprtype = oprtype;
+    }
+
+    public UserstatuscontrolContent() {
+        super();
+    }
 
 }

@@ -45,8 +45,9 @@ public class KuyuAccount extends IdEntity implements Serializable {
     public void setText(String text) {
         this.text = text == null ? null : text.trim();
     }
-    public KuyuAccount(Integer id, String text) {
+    public KuyuAccount(Integer id, String tetle,String text) {
         this.setId(id);
+        this.tetle = tetle;
         this.text = text;
     }
 

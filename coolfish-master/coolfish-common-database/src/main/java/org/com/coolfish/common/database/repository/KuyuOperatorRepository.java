@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface KuyuOperatorRepository extends JpaRepository<KuyuOperator, Integer> {
-    @Query("select new KuyuOperator(e.id,e.text) from KuyuOperator e")
+    @Query("select new KuyuOperator(e.id,e.name,e.text) from KuyuOperator e")
     List<KuyuOperator> findAccount();
 
-    @Query("select new KuyuOperator(e.id,e.text) from KuyuOperator e where id=:id")
+    @Query("select new KuyuOperator(e.id,e.name,e.text) from KuyuOperator e where id=:id")
     KuyuOperator getOneOperator(@Param("id") Integer id);
 
 }

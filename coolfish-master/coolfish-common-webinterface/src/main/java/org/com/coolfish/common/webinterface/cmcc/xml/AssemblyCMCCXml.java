@@ -192,8 +192,7 @@ public class AssemblyCMCCXml {
      * 
      * 请求参数
      */
-    public String tfjActionXml2(String appId, String token, String groupid, String telnum, String oprtype,
-            String reason) {
+    public String tfjActionXml(String appId, String token, String groupid, String telnum, String oprtype,String reason) {
         TFJOperationIn operationIn = new TFJOperationIn();
         String req_time = sdf.format(new Date());
         operationIn.setProcess_code("cc_wlw_controlsr");

@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class IdEntity {
 
-    private Integer id;
+    protected Integer id;
 
     @Id
     @GeneratedValue

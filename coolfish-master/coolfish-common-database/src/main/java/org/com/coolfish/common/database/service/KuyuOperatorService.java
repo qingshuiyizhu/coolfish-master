@@ -15,12 +15,12 @@ public class KuyuOperatorService {
 
     @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);;
     }
 
     @Transactional(readOnly = true)
     public KuyuOperator get(Integer id) {
-        return repository.findOne(id);
+        return repository.getOne(id);
     }
 
     @Transactional

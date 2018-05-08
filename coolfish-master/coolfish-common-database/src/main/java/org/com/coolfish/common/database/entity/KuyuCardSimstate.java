@@ -18,21 +18,22 @@ public class KuyuCardSimstate extends IdEntity implements Serializable {
 
     private String card;
 
+    // 1为停机，2为开机
     private Integer type;
 
     private String result;
 
     private Integer status;
 
-    private String remarks = "流量用完或者过期失效";
+    private String remarks;
 
-    private String source = "监控停机";
+    private String source;
 
-    private String serialNumber = "监控停机";
+    private String serialNumber;
 
     private Date addtime;
 
-    private String operatorName;
+    private String operatorName = "流量监控";
 
     private Integer did = 0;
 

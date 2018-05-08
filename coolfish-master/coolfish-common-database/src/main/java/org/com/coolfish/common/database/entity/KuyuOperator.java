@@ -106,8 +106,9 @@ public class KuyuOperator extends IdEntity implements Serializable {
         this.text = text;
     }
 
-    public KuyuOperator(Integer id,String text) {
+    public KuyuOperator(Integer id,String name,String text) {
         this.setId(id);
+        this.name = name;
         this.text = text;
     }
 

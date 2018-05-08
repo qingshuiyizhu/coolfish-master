@@ -2,7 +2,9 @@ package org.com.coolfish.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 @Configuration
+@PropertySource(value = {"classpath:coolfish.properties"},ignoreResourceNotFound=true)
 public class ParamConfig {
 
     // 最大重试次数

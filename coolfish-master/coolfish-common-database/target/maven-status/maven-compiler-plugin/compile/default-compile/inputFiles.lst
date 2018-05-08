@@ -10,6 +10,7 @@ D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\or
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\repository\KuyuCardRepository.java
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\repository\KuyuFlowDetailRepository.java
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\service\KuyuCardSimstateService.java
+D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\config\DruidDBConfig.java
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\repository\KuyuCardSimstateRepository.java
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\entity\KuyuCardSimstate.java
 D:\DevelopTools\GitHub\coolfish-master\coolfish-common-database\src\main\java\org\com\coolfish\common\database\entity\KuyuCard.java

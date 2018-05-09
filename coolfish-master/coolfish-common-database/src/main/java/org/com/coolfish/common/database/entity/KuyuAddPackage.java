@@ -7,6 +7,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Table(name = "kuyu_add_package")
 @Entity
 public class KuyuAddPackage extends IdEntity implements Serializable {
@@ -92,6 +94,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
         this.remarks = remarks == null ? null : remarks.trim();
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getAddtime() {
         return addtime;
     }
@@ -100,6 +103,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
         this.addtime = addtime;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getStarttime() {
         return starttime;
     }
@@ -108,6 +112,7 @@ public class KuyuAddPackage extends IdEntity implements Serializable {
         this.starttime = starttime;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getEndtime() {
         return endtime;
     }

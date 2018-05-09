@@ -42,7 +42,7 @@ public class QueryMonthlyService {
     private final static int CTCC = 2;
 
     private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
- 
+
     public void handle(String message) {
         // 将String 转为MsisdnMessage对象
         log.info("月套餐流量状态查询队列(query-monthly)获取数据[{}]", message);
@@ -76,7 +76,7 @@ public class QueryMonthlyService {
         // 查询数据库中的总流量
         BigDecimal sumFlow = null;
         try {
-            sumFlow = addPackageService.findSumFlows(msisdnMessage.getCardid());
+            sumFlow = addPackageService.findMonthlySumFlows(msisdnMessage.getCardid());
         } catch (Exception e) {
             log.error("移动物联网卡ID[{}]查询总流量出错,{}", msisdnMessage.getCardid(), e.getMessage());
         }
@@ -87,7 +87,7 @@ public class QueryMonthlyService {
         if (null != sumFlow) {
             msisdnMessage.setSumflow(String.valueOf(sumFlow));
         } else {
-            msisdnMessage.setSumflow("0.00");
+            msisdnMessage.setSumflow("1.00");
         }
 
         UtilBean requestBean = new UtilBean();
@@ -97,7 +97,7 @@ public class QueryMonthlyService {
         requestBean.setOperatorid(msisdnMessage.getOperatorid());
         requestBean.setOperatorType(msisdnMessage.getOperatorType());
         requestBean.setZid(msisdnMessage.getZid());
-        
+
         requestBean = restTemplate
                 .postForEntity("http://114.55.132.207:8761/cmcc/queryTraffic", requestBean, UtilBean.class)
                 .getBody();
@@ -140,24 +140,18 @@ public class QueryMonthlyService {
             disabledBean = restTemplate.postForEntity("http://114.55.132.207:8761/cmcc/disabledNumber",
                     disabledBean, DisabledBean.class).getBody();
             int exist = disabledBean.getResultMsg().indexOf("停机状态的用户不允许再停机");
-            if ("0".equals(disabledBean.getResultCode())||exist != -1) {
-                // 成功，删除redis上的数据
-                redisService.delete(String.valueOf(msisdnMessage.getCardid()));
-                log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],删除该号码在Redis缓存中数据",
-                        msisdnMessage.getCardid(), msisdnMessage.getSumflow(), msisdnMessage.getUseflow(),
-                        rate * 100);
+            if ("0".equals(disabledBean.getResultCode()) || exist != -1) {
+                // 成功，
+                msisdnMessage.setCardStatus("停机");
+                msisdnMessage.setStartusCode("4");
             }
-        } else {
-            // 数据同步到Redis缓存上
-            redisService.set(String.valueOf(msisdnMessage.getCardid()),
-                    JSON.toJSONString(msisdnMessage).toString());
-
-            // 忽略处理
-            log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],信息更新到Redis缓存中{}",
-                    msisdnMessage.getCardid(), msisdnMessage.getSumflow(), msisdnMessage.getUseflow(),
-                    rate * 100, JSON.toJSONString(msisdnMessage).toString());
         }
-
+        // 数据同步到Redis缓存上
+        redisService.set(String.valueOf(msisdnMessage.getCardid()),
+                JSON.toJSONString(msisdnMessage).toString());
+        log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],信息更新到Redis缓存中{}", msisdnMessage.getCardid(),
+                msisdnMessage.getSumflow(), msisdnMessage.getUseflow(), rate * 100,
+                JSON.toJSONString(msisdnMessage).toString());
     }
 
     // 电信月套餐监控
@@ -169,7 +163,7 @@ public class QueryMonthlyService {
         // 查询数据库中的总流量
         BigDecimal sumFlow = null;
         try {
-            sumFlow = addPackageService.findSumFlows(msisdnMessage.getCardid());
+            sumFlow = addPackageService.findMonthlySumFlows(msisdnMessage.getCardid());
         } catch (Exception e) {
             log.error("电信物联网卡ID[{}]查询总流量出错,{}", msisdnMessage.getCardid(), e.getMessage());
         }
@@ -180,9 +174,9 @@ public class QueryMonthlyService {
         if (null != sumFlow) {
             msisdnMessage.setSumflow(String.valueOf(sumFlow));
         } else {
-            msisdnMessage.setSumflow("0.00");
+            msisdnMessage.setSumflow("1.00");
         }
-        
+
         // 查询电信当月使用量
         UtilBean requestBean = new UtilBean();
         requestBean.setCardId(msisdnMessage.getCardid());
@@ -191,9 +185,9 @@ public class QueryMonthlyService {
         requestBean.setOperatorid(msisdnMessage.getOperatorid());
         requestBean.setOperatorType(msisdnMessage.getOperatorType());
         requestBean.setZid(msisdnMessage.getZid());
-          // 查询流量
+        // 查询流量
         requestBean = restTemplate
-                .postForEntity("http://114.55.132.207:8761/ctcc/queryTraffic", requestBean, UtilBean.class)
+                .postForEntity("http://112.74.57.55:8761/ctcc/queryTraffic", requestBean, UtilBean.class)
                 .getBody();
         double realApiflow = 0D;
         if (StringUtils.isNotBlank(requestBean.getAnalyze())) {
@@ -202,51 +196,48 @@ public class QueryMonthlyService {
             realApiflow = DecimalTools.div(nowApifow, msisdnMessage.getPer(), 2);
             msisdnMessage.setUseflow(String.valueOf(realApiflow));
         }
-         // 查询状态
+        // 查询状态
         requestBean = restTemplate
-                .postForEntity("http://114.55.132.207:8761/ctcc/queryStatus", requestBean, UtilBean.class)
+                .postForEntity("http://112.74.57.55:8761/ctcc/queryStatus", requestBean, UtilBean.class)
                 .getBody();
-         if (!"-1".equals(requestBean.getResultCode())) {
+        if (!"-1".equals(requestBean.getResultCode())) {
             String startusCode = requestBean.getResultCode();
             String cardStatus = requestBean.getResultMsg();
             msisdnMessage.setStartusCode(startusCode);
             msisdnMessage.setCardStatus(cardStatus);
 
         }
-         // 使用量/总流量
-         double rate = DecimalTools.div(msisdnMessage.getUseflow(), msisdnMessage.getSumflow(), 2);
+        // 使用量/总流量
+        double rate = DecimalTools.div(msisdnMessage.getUseflow(), msisdnMessage.getSumflow(), 2);
 
-         if (DecimalTools.compareTo(rate, 0.99d) > -1 && "1".equals(msisdnMessage.getStartusCode())) {
-         // 调用停机方法
-             DisabledBean disabledBean = new DisabledBean();
-             disabledBean.setActionReason("月套餐流量用完");
-             disabledBean.setSource("流量监控");
-             disabledBean.setCardId(msisdnMessage.getCardid());
-             disabledBean.setIphone(msisdnMessage.getIphone());
-             disabledBean.setOperatorid(msisdnMessage.getOperatorid());
-             disabledBean.setZid(msisdnMessage.getZid());
-             disabledBean.setOperatorType(msisdnMessage.getOperatorType());
-             disabledBean.setOprtype("1");//
-             disabledBean.setReason("2");//
-             disabledBean = restTemplate.postForEntity("http://114.55.132.207:8761/ctcc/disabledNumber",
-                     disabledBean, DisabledBean.class).getBody();
-             int exist = disabledBean.getResultMsg().indexOf("已存在停机");
-             if ("0".equals(disabledBean.getResultCode())||exist != -1) {
-                 // 成功，删除redis上的数据
-                 redisService.delete(String.valueOf(msisdnMessage.getCardid()));
-                 log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],删除该号码在Redis缓存中数据",
-                         msisdnMessage.getCardid(), msisdnMessage.getSumflow(), msisdnMessage.getUseflow(),
-                         rate * 100);
-             }
-         } else {
-             // 数据同步到Redis缓存上
-             redisService.set(String.valueOf(msisdnMessage.getCardid()),
-                     JSON.toJSONString(msisdnMessage).toString());
-             // 忽略处理
-             log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],信息更新到Redis缓存中{}",
-                     msisdnMessage.getCardid(), msisdnMessage.getSumflow(), msisdnMessage.getUseflow(),
-                     rate * 100, JSON.toJSONString(msisdnMessage).toString());
-         }
- 
+        if (DecimalTools.compareTo(rate, 0.99d) > -1 && "1".equals(msisdnMessage.getStartusCode())) {
+            // 调用停机方法
+            DisabledBean disabledBean = new DisabledBean();
+            disabledBean.setActionReason("月套餐流量用完");
+            disabledBean.setSource("流量监控");
+            disabledBean.setCardId(msisdnMessage.getCardid());
+            disabledBean.setIphone(msisdnMessage.getIphone());
+            disabledBean.setOperatorid(msisdnMessage.getOperatorid());
+            disabledBean.setZid(msisdnMessage.getZid());
+            disabledBean.setOperatorType(msisdnMessage.getOperatorType());
+            disabledBean.setOprtype("1");//
+            disabledBean.setReason("2");//
+            disabledBean = restTemplate.postForEntity("http://112.74.57.55:8761/ctcc/disabledNumber",
+                    disabledBean, DisabledBean.class).getBody();
+            int exist = disabledBean.getResultMsg().indexOf("已存在停机");
+            if ("0".equals(disabledBean.getResultCode()) || exist != -1) {
+                // 成功，删除redis上的数据
+                msisdnMessage.setCardStatus("停机");
+                msisdnMessage.setStartusCode("4");
+            }
+        }
+        // 数据同步到Redis缓存上
+        redisService.set(String.valueOf(msisdnMessage.getCardid()),
+                JSON.toJSONString(msisdnMessage).toString());
+        // 忽略处理
+        log.info("物联网卡ID[{}]套餐总量[{} kb], 已使用量[{} kb], 使用率[{}%],信息更新到Redis缓存中{}", msisdnMessage.getCardid(),
+                msisdnMessage.getSumflow(), msisdnMessage.getUseflow(), rate * 100,
+                JSON.toJSONString(msisdnMessage).toString());
+
     }
 }

@@ -6,17 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "query-monthly")
+@RabbitListener(queues = "total-silent")
 public class QueryListener {
 
     @Autowired
     private QueryMonthlyService queryMonthlyService;
 
+    @Autowired
+    private TotalSilentService totalSilentService;
+
     @RabbitHandler
     public void process(String message) {
 
-        // 监听月套餐队列
-         queryMonthlyService.handle(message);
+        // 监听累计套沉默期队列
+        totalSilentService.handle(message);
     }
 
 }

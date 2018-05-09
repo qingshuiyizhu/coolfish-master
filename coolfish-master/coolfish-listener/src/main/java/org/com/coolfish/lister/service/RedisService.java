@@ -12,7 +12,7 @@ public class RedisService {
     StringRedisTemplate stringRedisTemplate;
 
     public void set(String key, String value) {
-        stringRedisTemplate.opsForValue().set(key, value, 5L, TimeUnit.HOURS);
+        stringRedisTemplate.opsForValue().set(key, value, 30L, TimeUnit.HOURS);
     }
 
     public String get(String key) {

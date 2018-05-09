@@ -14,9 +14,10 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class EmptyScheduler {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private KuyuCardService kuyuCardService;
@@ -36,16 +37,16 @@ public class EmptyScheduler {
     }
 
     public void startEmpty() {
-        logger.info("#####执行计划任务：执行移动池卡空套餐号码查询#####");
+        log.info("#####执行计划任务：执行移动池卡空套餐号码查询#####");
         /*
-         * card_type=2 and type = 4
+         * card_type=2 and type = 4 移动池卡空套餐使用流量超过10M的停机
          * 
          */
         // 组合查询出卡号码的供应商id，套餐总流量等信息
         Integer[] operatorIds = new Integer[] { 118, 137, 142, 143, 159, 160, 167, 170, 171, 173, 179, 180,
                 181, 182, 183, 185, 191, 192, 193, 194, 202, 203, 204, 209, 210, 211, 213 };
         List<KuyuCard> list = kuyuCardService.findEmptyCardMessage(operatorIds);
-        logger.info("进行空套餐处理所有号码数量：" + list.size());
+        log.info("进行空套餐处理所有号码数量：" + list.size());
         for (KuyuCard card : list) {
             MsisdnMessage message = new MsisdnMessage();
             message.setCardid(card.getId());
@@ -54,8 +55,7 @@ public class EmptyScheduler {
             message.setOperatorType(card.getOperator_type());
             String json = JSON.toJSONString(message).toString();
             rabbitTemplate.convertAndSend("empty-monthly", json);
-            logger.info("物联网卡ID[{}]加入月套餐空套餐处理队列(empty-monthly),封装的message为：{}", card.getId(), json);
-
+            log.info("物联网卡ID[{}]加入月套餐空套餐处理队列(empty-monthly),封装的message为：{}", card.getId(), json);
         }
     }
 

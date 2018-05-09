@@ -35,7 +35,7 @@ public class MonthlyScheduler {
     private RedisService redisService;
 
     // 月套餐监控
-  //  @Scheduled(cron = "0 0/5 * * * ?")
+   // @Scheduled(cron = "0 0/5 * * * ?")
     public void monthlyScheduler() {
         Integer monthly = Integer.parseInt(
                 rabbitAdmin.getQueueProperties("fastquery-monthly").get("QUEUE_MESSAGE_COUNT").toString());
@@ -49,7 +49,6 @@ public class MonthlyScheduler {
         List<KuyuCard> list = kuyuCardService.findMonthlyCardMessage();
         int number = list.size();
         log.info("已订购月套餐的所有号码数量：{}", number);
-
         for (KuyuCard card : list) {
             log.info("剩余未处理号码个数：[{}],正在处理物联网卡ID[{}]数据:{}", number--, card.getId(), card.toString());
             // 使用量
@@ -103,6 +102,7 @@ public class MonthlyScheduler {
         msisdnMessage.setCardid(card.getId());
         msisdnMessage.setStartusCode(String.valueOf(card.getCard_status()));
         msisdnMessage.setIphone(card.getTel());
+        msisdnMessage.setIccid(card.getIccid());
         msisdnMessage.setPer(String.valueOf(card.getPer()));
         msisdnMessage.setOperatorid(card.getOperatorid());
         msisdnMessage.setCardStatus("在用");

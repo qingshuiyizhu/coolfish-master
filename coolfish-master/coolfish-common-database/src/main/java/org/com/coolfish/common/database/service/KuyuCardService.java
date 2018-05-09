@@ -54,19 +54,13 @@ public class KuyuCardService {
     public List<KuyuCard> findEmptyCardMessage(Integer[] ids) {
         return repository.findEmptyCardMessage(ids);
     }
-
+   
     @Transactional
-    public void flashDayFlow(Integer cardid, BigDecimal userFlow, BigDecimal sumFlow) {
-        repository.flashDayFlow(cardid, userFlow, sumFlow);
+    public void flashFlows(Integer cardid, BigDecimal userFlow, BigDecimal sumFlow) {
+        repository.flashFlows(cardid, userFlow, sumFlow);
 
-    }
-
-    @Transactional
-    public void flashPackageid(Integer packageid, Integer cardid) {
-        repository.flashDayFlow(packageid, cardid);
-
-    }
-  
+    } 
+   
     @Transactional(readOnly = true)
     public List<KuyuCard> findMonthlyNullSumFlow() {
          

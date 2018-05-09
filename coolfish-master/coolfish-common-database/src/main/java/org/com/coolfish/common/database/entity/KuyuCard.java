@@ -20,6 +20,8 @@ public class KuyuCard extends IdEntity implements Serializable {
     // 卡接入号
     private String tel;
 
+    private String iccid;
+
     // 对应的kuyu_operacor的主键ID
     private Integer operatorid;
 
@@ -96,6 +98,14 @@ public class KuyuCard extends IdEntity implements Serializable {
         this.tel = tel;
     }
 
+    public String getIccid() {
+        return iccid;
+    }
+
+    public void setIccid(String iccid) {
+        this.iccid = iccid;
+    }
+
     public Integer getOperatorid() {
         return operatorid;
     }
@@ -121,7 +131,7 @@ public class KuyuCard extends IdEntity implements Serializable {
     }
 
     public BigDecimal getSumflow() {
-         return null == sumflow ? new BigDecimal("0.00") : sumflow;
+        return null == sumflow ? new BigDecimal("0.00") : sumflow;
     }
 
     public void setSumflow(BigDecimal sumflow) {
@@ -172,12 +182,14 @@ public class KuyuCard extends IdEntity implements Serializable {
         super();
     }
 
-    public KuyuCard(Integer id, Integer operator_type, String tel, Integer operatorid, Integer zid,
-            Date starttime, BigDecimal sumflow, BigDecimal useflow, BigDecimal per, Integer card_status,
-            Integer card_type, Integer frequency, BigDecimal beforeApiFlow, Integer type) {
-          this.id =id;
+    public KuyuCard(Integer id, Integer operator_type, String tel, String iccid, Integer operatorid,
+            Integer zid, Date starttime, BigDecimal sumflow, BigDecimal useflow, BigDecimal per,
+            Integer card_status, Integer card_type, Integer frequency, BigDecimal beforeApiFlow,
+            Integer type) {
+        this.id = id;
         this.operator_type = operator_type;
         this.tel = tel;
+        this.iccid = iccid;
         this.operatorid = operatorid;
         this.zid = zid;
         this.starttime = starttime;
@@ -194,7 +206,7 @@ public class KuyuCard extends IdEntity implements Serializable {
     public KuyuCard(Integer id, Integer operator_type, String tel, Integer operatorid, Integer zid,
             BigDecimal sumflow, BigDecimal useflow, BigDecimal per, Integer card_status, Integer type,
             Integer frequency) {
-        this.id =id;
+        this.id = id;
         this.operator_type = operator_type;
         this.tel = tel;
         this.operatorid = operatorid;
@@ -212,8 +224,8 @@ public class KuyuCard extends IdEntity implements Serializable {
         return "KuyuCard [operator_type=" + operator_type + ", tel=" + tel + ", operatorid=" + operatorid
                 + ", zid=" + zid + ", starttime=" + starttime + ", sumflow=" + sumflow + ", useflow="
                 + useflow + ", per=" + per + ", card_status=" + card_status + ", card_type=" + card_type
-                + ", frequency=" + frequency + ", beforeApiFlow=" + beforeApiFlow + ", type=" + type
-                + ", id=" + id + "]";
+                + ", frequency=" + frequency + ", beforeApiFlow=" + beforeApiFlow + ", type=" + type + ", id="
+                + id + "]";
     }
 
 }

@@ -29,7 +29,7 @@ public class SilentScheduler {
 
    
     // 累计套餐沉默期监控
-   // @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void silentScheduler() {
         Integer silent = Integer.parseInt(
                 rabbitAdmin.getQueueProperties("total-silent").get("QUEUE_MESSAGE_COUNT").toString());
@@ -49,8 +49,10 @@ public class SilentScheduler {
             MsisdnMessage message = new MsisdnMessage();
             message.setCardid(card.getId());
             message.setIphone(card.getTel());
-            // message.setIccid(card.get);
+            message.setIccid(card.getIccid());
             message.setOperatorType(card.getOperator_type());
+            message.setOperatorid(card.getOperatorid());
+            message.setZid(card.getZid());
             String json = JSON.toJSONString(message).toString();
             rabbitTemplate.convertAndSend("total-silent", json);
             log.info("物联网卡ID[{}]加入累计套餐沉默期处理队列(total-silent),封装的message为：{}",card.getId(),json);

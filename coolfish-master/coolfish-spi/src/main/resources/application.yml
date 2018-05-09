@@ -3,7 +3,7 @@ eureka:
               serviceUrl:
                           defaultZone: http://39.108.19.148:8760/eureka/
 server:
-      port: 8762
+      port: 8761
       tomcat:
               accept-count: 200 
               max-threads: 200 

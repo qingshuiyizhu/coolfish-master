@@ -79,6 +79,11 @@ public class DecimalTools {
         return v1.subtract(b2).doubleValue();
     }
 
+    public static BigDecimal sub(String v1, BigDecimal v2) {
+        BigDecimal b1 = new BigDecimal(v1);
+        return b1.subtract(v2);
+    }  
+    
     /**
      * 精确的乘法运算
      * 

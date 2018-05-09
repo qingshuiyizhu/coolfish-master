@@ -36,42 +36,38 @@ public class KuyuAddPackageService {
     }
 
     @Transactional(readOnly = true)
-    public BigDecimal SumFlow(String tel) {
-        return repository.SumFlow(tel);
+    public List<KuyuAddPackage> findFlashObject(Integer cardId) {
 
-    }
-
-    public BigDecimal SumFlowTal(String tel) {
-        return repository.SumFlowTal(tel);
-    }
-
-    @Transactional(readOnly = true)
-    public List<KuyuAddPackage> findFlashObject(String tel) {
-
-        return repository.findFlashObject(tel);
+        return repository.findFlashObject(cardId);
     }
 
     @Transactional
-    public void flashSilentTime(Date endtime, Integer id) {
-        repository.flashSlientTime(endtime, id);
+    public void flashSilentTime(Date starttime ,Date endtime, Integer id) {
+        repository.flashSlientTime(starttime,endtime, id);
 
     }
 
-    @Transactional(readOnly = true)
-    public BigDecimal findSumFlows(Integer cardId) {
-       
-        return repository.findSumFlows(cardId);
-    }
-  
-    @Transactional(readOnly = true)
-    public BigDecimal findMonthlyNullSumFlow(Integer id) {
-     
-        return  repository.findMonthlyNullSumFlow(id);
-    }
     @Transactional(readOnly = true)
     public List<KuyuAddPackage> findMonthlyHaveSumFlow() {
-      
-        return  repository.findMonthlyHaveSumFlow();
+
+        return repository.findMonthlyHaveSumFlow();
+    }
+
+    @Transactional(readOnly = true)
+    public BigDecimal findMonthlySumFlows(Integer cardid) {
+
+        return repository.findMonthlySumFlows(cardid);
+    }
+
+    @Transactional(readOnly = true)
+    public List<KuyuAddPackage> findEndTimeError(Date date) {
+        return repository.findEndTimeError(date);
+
+    }
+    @Transactional
+    public void flushEndTime(Integer id, Date endTime) {
+       repository.flushEndTime(id,endTime);
+        
     }
 
 }

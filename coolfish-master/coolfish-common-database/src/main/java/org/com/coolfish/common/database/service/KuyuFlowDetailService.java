@@ -1,7 +1,5 @@
 package org.com.coolfish.common.database.service;
 
-import java.util.List;
-
 import org.com.coolfish.common.database.entity.KuyuFlowDetail;
 import org.com.coolfish.common.database.repository.KuyuFlowDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +26,7 @@ public class KuyuFlowDetailService {
         repository.saveAndFlush(kuyu);
     }
 
-    @Transactional(readOnly = true)
-    public List<KuyuFlowDetail> findAll() {
-        return repository.findAll();
-    }
-   
+     
 
     @Transactional(readOnly = true)
     public KuyuFlowDetail findLastRecord(Integer cardid) {

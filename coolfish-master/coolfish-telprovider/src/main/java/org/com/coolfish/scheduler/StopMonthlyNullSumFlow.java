@@ -1,11 +1,13 @@
 package org.com.coolfish.scheduler;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.com.coolfish.common.database.entity.KuyuCard;
 import org.com.coolfish.common.database.service.KuyuAddPackageService;
 import org.com.coolfish.common.database.service.KuyuCardService;
+import org.com.coolfish.common.util.DecimalTools;
 import org.com.coolfish.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,11 +45,11 @@ public class StopMonthlyNullSumFlow {
             log.info("剩余未处理号码个数：[{}],正在处理物联网卡ID[{}]数据:{}", number--, kuyuCard.getId(), kuyuCard.toString());
             BigDecimal sumflow = null;
             try {
-                sumflow = kuyuAddPackageService.findMonthlyNullSumFlow(kuyuCard.getId());
+                sumflow = kuyuAddPackageService.findMonthlySumFlows(kuyuCard.getId());
             } catch (Exception e) {
 
             }
-            if (null == sumflow) {
+            if (null == sumflow || DecimalTools.sub(sumflow, "0.00") == 1) {
                 // 查询状态，正常，进行停机
                 action.stopMonthlyNullSumFlow(kuyuCard);
 

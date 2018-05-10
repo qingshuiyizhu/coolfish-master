@@ -1,0 +1,64 @@
+
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header>
+		<wsse:Security
+			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+			SOAP-ENV:mustUnderstand="1">
+			<wsse:UsernameToken
+				xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+				wsu:Id="XWSSGID-1525923772022-1783888714">
+				<wsse:Username>liuchang16523</wsse:Username>
+				<wsse:Password
+					Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KUyu8888@</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</SOAP-ENV:Header>
+	<SOAP-ENV:Body>
+		<jws:EditTerminalRequest xmlns:jws="http://api.jasperwireless.com/ws/schema">
+			<jws:messageId>TCE-100-ABC-34084</jws:messageId>
+			<jws:version>1.0</jws:version>
+			<jws:licenseKey>04f4d3fe-0706-4683-900a-f89c93304178</jws:licenseKey>
+			<jws:iccid>89860617060023161011</jws:iccid>
+			<jws:targetValue>DEACTIVATED_NAME</jws:targetValue>
+			<jws:changeType>3</jws:changeType>
+		</jws:EditTerminalRequest>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header />
+	<SOAP-ENV:Body>
+		<ns2:EditTerminalResponse xmlns:ns2="http://api.jasperwireless.com/ws/schema"
+			ns2:requestId="T3/4Hut9w10lYMfN">
+			<ns2:correlationId>TCE-100-ABC-34084</ns2:correlationId>
+			<ns2:version>7.28</ns2:version>
+			<ns2:build>Unknown</ns2:build>
+			<ns2:timestamp>2018-05-10T03:42:53.455Z</ns2:timestamp>
+			<ns2:iccid>89860617060023161011</ns2:iccid>
+			<ns2:effectiveDate>2018-05-10Z</ns2:effectiveDate>
+		</ns2:EditTerminalResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header />
+	<SOAP-ENV:Body>
+		<ns2:EditTerminalResponse xmlns:ns2="http://api.jasperwireless.com/ws/schema"
+			ns2:requestId="G1X8tEUtsofRiLBQ">
+			<ns2:correlationId>TCE-100-ABC-34084</ns2:correlationId>
+			<ns2:version>7.28</ns2:version>
+			<ns2:build>Unknown</ns2:build>
+			<ns2:timestamp>2018-05-10T04:06:24.205Z</ns2:timestamp>
+			<ns2:iccid>89860617060023161011</ns2:iccid>
+			<ns2:effectiveDate>2018-05-10Z</ns2:effectiveDate>
+		</ns2:EditTerminalResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+
+
+
+

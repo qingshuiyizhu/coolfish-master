@@ -31,7 +31,7 @@ public class ComDBService {
     private KuyuPackageService kuyuPackageService;
 
     // 记录每日流量使用量
-    public void EveryDayLogWriter(MsisdnMessage message) {
+    public void MonthlyEveryDayLogWriter(MsisdnMessage message) {
         KuyuCard kuyuCard = kuyuCardService.get(message.getCardid());
         log.info("物联网卡ID[{}]记录每日流量使用量,更新前记录：{}", message.getCardid(), kuyuCard.toString());
         if (kuyuCard != null) {
@@ -46,7 +46,7 @@ public class ComDBService {
             log.info("物联网卡ID[{}]记录每日流量使用量,KuyuFlowDetail表中最新插入记录：{}", message.getCardid(),
                     kuyuFlowDetail.toString());
             kuyuFlowDetailService.save(kuyuFlowDetail);
-
+         
             kuyuCard.setSumflow(new BigDecimal(message.getSumflow()));
             kuyuCard.setUseflow(new BigDecimal(message.getUseflow()));
             kuyuCardService.flashFlows(message.getCardid(), new BigDecimal(message.getUseflow()),
@@ -54,7 +54,7 @@ public class ComDBService {
         }
     }
 
-    public void flashSlientStatus(Integer cardId) {// 可以优化
+    public void flashSlientStatus(Integer cardId) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 小写的mm表示的是分钟
         List<KuyuAddPackage> addPackages = kuyuAddPackageService.findFlashObject(cardId);
         log.info("物联网卡ID[{}]沉默期订购套餐个数[{}]", cardId, addPackages.size());

@@ -60,8 +60,8 @@ public class KuyuAddPackageService {
     }
 
     @Transactional(readOnly = true)
-    public List<KuyuAddPackage> findEndTimeError() {
-        return repository.findEndTimeError( );
+    public List<KuyuAddPackage> findEndTimeError(Date date) {
+        return repository.findEndTimeError(date);
 
     }
     @Transactional

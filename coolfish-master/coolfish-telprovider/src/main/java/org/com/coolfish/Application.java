@@ -1,7 +1,6 @@
 package org.com.coolfish;
 
 import org.com.coolfish.scheduler.EmptyScheduler;
-import org.com.coolfish.scheduler.EveryDayFlowWriterScheduler;
 import org.com.coolfish.scheduler.MonthlyScheduler;
 import org.com.coolfish.scheduler.SilentScheduler;
 import org.com.coolfish.scheduler.StartMonthlyHaveSumFlowScheduler;
@@ -35,9 +34,6 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private UpdateAddpackageEndTime updateAddpackageEndTime;
-
-    @Autowired
-    private EveryDayFlowWriterScheduler everyDayFlowWriterScheduler;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

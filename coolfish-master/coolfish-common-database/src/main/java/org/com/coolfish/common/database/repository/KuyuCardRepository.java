@@ -21,16 +21,13 @@ public interface KuyuCardRepository extends JpaRepository<KuyuCard, Integer> {
     /*
      * 2查询在用池卡月套餐
      */
-   /* @Query("select new KuyuCard (e.id,e.operator_type,e.tel,e.operatorid,e.zid,sum(kap.sumflow),e.useflow,e.per,e.card_status,e.type,e.frequency) from KuyuCard e, KuyuAddPackage kap where e.card_type=2 and e.type =1 and kap.endtime > now() and kap.starttime < now() and e.id=kap.cardId group by kap.cardId")
-    List<KuyuCard> findMonthlyCardMessage();    
+    @Query("select new KuyuCard (e.id,e.operator_type,e.tel,e.operatorid,e.zid,sum(kap.sumflow),e.useflow,e.per,e.card_status,e.type,e.frequency) from KuyuCard e, KuyuAddPackage kap where e.card_type=2 and e.type =1 and kap.endtime > now() and kap.starttime < now() and e.id=kap.cardId group by kap.cardId")
+    List<KuyuCard> findMonthlyCardMessage();
+ 
     
-    */
-    @Query("select new KuyuCard (e.id,e.operator_type,e.tel,e.operatorid,e.zid,sum(kap.sumflow),e.useflow,e.per,e.card_status,e.type,e.frequency) from KuyuCard e, KuyuAddPackage kap where e.card_type=2 and e.operator_type in (1,2) and e.type =1 and kap.uid = 50 and kap.starttime < now() and kap.endtime > now() and kap.status =2 and kap.type in (1,3) and e.id=kap.cardId group by kap.cardId")
-    List<KuyuCard> findMonthlyCardMessage();    
    /*
     * 3查询池卡累计套餐处于沉默期的号码
     */
-
     @Query("select new KuyuCard (e.id,e.operator_type,e.tel,e.operatorid,e.zid,e.sumflow,e.useflow,e.per,e.card_status,e.type,e.frequency) from KuyuCard e where e.card_type=2 and e.frequency=1 and e.type = 2 and e.card_status =2")
     List<KuyuCard> findSilentCardMessage();
 
@@ -42,8 +39,8 @@ public interface KuyuCardRepository extends JpaRepository<KuyuCard, Integer> {
 
     // 5每天更新数据库KuyuCard表里的使用流量和总流量
     @Modifying
-    @Query("update KuyuCard e set e.useflow =:userFlow ,e.sumflow=:sumFlow where e.id=:id")
-    void flashFlows(@Param("id") Integer  id, @Param("userFlow") BigDecimal userFlow,
+    @Query("update KuyuCard e set e.useflow =:userFlow ,e.sumflow=:sumFlow where e.id=:cardid")
+    void flashFlows(@Param("cardid") Integer cardid, @Param("userFlow") BigDecimal userFlow,
             @Param("sumFlow") BigDecimal sumFlow);
 
     /*

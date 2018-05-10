@@ -25,10 +25,9 @@ public class StartMonthlyHaveSumFlowScheduler {
     @Autowired
     private ActionService action;
     /*
-     * 当月订购了套餐的，进行开机  每月1号00:00:00执行
+     * 当月订购了套餐的，进行开机
      */
 
-    
     public void startScheduler() {
         while (true) {
             startMonthlyHaveSumFlowScheduler();

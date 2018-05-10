@@ -2,8 +2,8 @@ package org.com.coolfish.common.spi.service;
 
 import org.com.coolfish.common.model.CMCCOperator;
 import org.com.coolfish.common.model.CTCCOperator;
-import org.com.coolfish.common.spi.cache.CMCCAccountCache;
-import org.com.coolfish.common.spi.cache.CTCCAccountCache;
+import org.com.coolfish.common.webinterface.cache.CMCCAccountCache;
+import org.com.coolfish.common.webinterface.cache.CTCCAccountCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service

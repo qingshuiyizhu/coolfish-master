@@ -30,23 +30,27 @@ public class UpdateAddpackageEndTime {
             String dstr = "2020-01-01 00:00:00";
 
             java.util.Date date = sdf.parse(dstr);
-            List<KuyuAddPackage> list = kuyuaddPackageService.findEndTimeError(date);
+            List<KuyuAddPackage> list = kuyuaddPackageService.findEndTimeError();
             int number = list.size();
             log.info("进行订购了当月套餐的所有号码数量：{}", number);
 
             for (KuyuAddPackage kuyuAddPackage : list) {
-                // log.info("剩余未处理号码个数：[{}],正在处理kuyuAddPackageID[{}]数据:{}", number--,
-                // kuyuAddPackage.getCardId(), kuyuAddPackage.toString());
+                log.info("剩余未处理号码个数：[{}],正在处理kuyuAddPackageID[{}]数据:{}", number--, kuyuAddPackage.getCardId(),
+                        kuyuAddPackage.toString());
+                if (null != kuyuAddPackage.getPackageid() && kuyuAddPackage.getPackageid() > 0) {
+                    Integer usetime = kuyuPackageService.findUsetime(kuyuAddPackage.getPackageid());
+                    if (null != usetime && usetime > 0) {
+                        long apartTime = usetime * 24 * 60 * 60 * 1000L;
 
-                Integer usetime = kuyuPackageService.findUsetime(kuyuAddPackage.getPackageid());
-                long apartTime = usetime * 24 * 60 * 60 * 1000L;
+                        String endTime = sdf.format(new Date(kuyuAddPackage.getStarttime().getTime() + apartTime));
 
-                String endTime = sdf.format(new Date(kuyuAddPackage.getStarttime().getTime() + apartTime));
+                        log.info("kuyuAddPackageID[{}]开始时间[{}],相隔天数[{}]矫正后结束时间数据:{}",
+                                kuyuAddPackage.getCardId(), kuyuAddPackage.getStarttime(), usetime, endTime);
 
-                log.info("kuyuAddPackageID[{}]开始时间[{}],相隔天数[{}]矫正后结束时间数据:{}", kuyuAddPackage.getCardId(),
-                        kuyuAddPackage.getStarttime(), usetime, endTime);
-                
-                kuyuaddPackageService.flushEndTime(kuyuAddPackage.getId(), new Date(kuyuAddPackage.getStarttime().getTime() + apartTime));
+                        kuyuaddPackageService.flushEndTime(kuyuAddPackage.getId(),
+                                new Date(kuyuAddPackage.getStarttime().getTime() + apartTime));
+                    }
+                }
 
             }
 

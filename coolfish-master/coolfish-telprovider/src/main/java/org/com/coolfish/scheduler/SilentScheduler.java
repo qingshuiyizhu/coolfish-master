@@ -29,7 +29,7 @@ public class SilentScheduler {
 
    
     // 累计套餐沉默期监控
-    @Scheduled(cron = "0 0/5 * * * ?")
+   // @Scheduled(cron = "0 0/5 * * * ?")
     public void silentScheduler() {
         Integer silent = Integer.parseInt(
                 rabbitAdmin.getQueueProperties("total-silent").get("QUEUE_MESSAGE_COUNT").toString());

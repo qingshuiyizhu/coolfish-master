@@ -136,10 +136,10 @@ public class ActionService {
             }
         } else if (kuyuCard.getOperator_type() == 2) {
             try {
-                requestbean = restTemplate.postForEntity("http://114.55.132.207:8761/ctcc/queryStatus",
+                requestbean = restTemplate.postForEntity("http://112.74.57.55:8761/ctcc/queryStatus",
                         requestbean, UtilBean.class).getBody();
             } catch (Exception e) {
-                log.error("请求http://114.55.132.207:8761/ctcc/queryStatus发生异常[{}]", e);
+                log.error("请求http://112.74.57.55:8761/ctcc/queryStatus发生异常[{}]", e);
             }
             if ("1".equals(requestbean.getResultCode())) {// 正常，停机
                 log.info("物联网卡ID[{}],[{}]当月未订购套餐，状态在用，进行停机操作", kuyuCard.getId(), kuyuCard.getTel());
@@ -155,11 +155,11 @@ public class ActionService {
                 disabledBean.setReason("2");//
                 try {
                     disabledBean = restTemplate
-                            .postForEntity("http://114.55.132.207:8761/ctcc/disabledNumber", disabledBean,
+                            .postForEntity("http://112.74.57.55:8761/ctcc/disabledNumber", disabledBean,
                                     DisabledBean.class)
                             .getBody();
                 } catch (Exception e) {
-                    log.error("请求http://114.55.132.207:8761/ctcc/disabledNumber发生异常[{}]", e);
+                    log.error("请求http://112.74.57.55:8761/ctcc/disabledNumber发生异常[{}]", e);
                 }
             }
         }
@@ -193,7 +193,7 @@ public class ActionService {
             }
         } else if (kuyuCard.getOperator_type() == 2) {
             requestbean = restTemplate
-                    .postForEntity("http://114.55.132.207:8761/ctcc/queryStatus", requestbean, UtilBean.class)
+                    .postForEntity("http://112.74.57.55:8761/ctcc/queryStatus", requestbean, UtilBean.class)
                     .getBody();
 
             if (!"1".equals(requestbean.getResultCode()) && !"-1".equals(requestbean.getResultCode())) {// 正常，停机
@@ -207,7 +207,7 @@ public class ActionService {
                 disabledBean.setOperatorType(kuyuCard.getOperator_type());
                 disabledBean.setOprtype("2");//
                 disabledBean.setReason("7");//
-                disabledBean = restTemplate.postForEntity("http://114.55.132.207:8761/ctcc/disabledNumber",
+                disabledBean = restTemplate.postForEntity("http://112.74.57.55:8761/ctcc/disabledNumber",
                         disabledBean, DisabledBean.class).getBody();
             }
         }

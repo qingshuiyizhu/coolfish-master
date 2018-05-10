@@ -33,6 +33,8 @@ public class StopMonthlyNullSumFlow {
         }
     }
 
+    
+    //每月1号00：00:00执行
     public void stopMonthlyNullSumFlowScheduler() {
         log.info("#####执行定时计划任务：执行当月未订购套餐号码查询#####");
         /*

@@ -56,8 +56,8 @@ public class KuyuCardService {
     }
    
     @Transactional
-    public void flashFlows(Integer cardid, BigDecimal userFlow, BigDecimal sumFlow) {
-        repository.flashFlows(cardid, userFlow, sumFlow);
+    public void flashFlows(Integer id, BigDecimal userFlow, BigDecimal sumFlow) {
+        repository.flashFlows(id, userFlow, sumFlow);
 
     } 
    

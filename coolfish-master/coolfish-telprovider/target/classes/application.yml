@@ -35,6 +35,18 @@ spring:
                   username: root
                   password: root
 #RabbitMq配置
+       redis: 
+             database: 0
+             host: 39.108.19.148
+             port: 6379
+             password : coolfish888
+             timeout: 3000        
+             jedis:
+                  pool:  #redis线程池设置 
+                     max-idle: 5
+                     min-idle: 0
+                     max-active: 5
+                     max-wait: -1
        rabbitmq: 
                  host: 39.108.19.148
                  port: 5672
@@ -57,9 +69,9 @@ spring:
              timeout: 3000        
              jedis:
                   pool:  #redis线程池设置 
-                     max-idle: 20
+                     max-idle: 5
                      min-idle: 0
-                     max-active: 20
+                     max-active: 5
                      max-wait: -1
 #RabbitMq配置
        rabbitmq: 
